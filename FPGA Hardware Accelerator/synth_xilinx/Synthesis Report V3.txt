@@ -1,0 +1,1209 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.13 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.13 secs
+ 
+--> Reading design: System_Top_Integrated.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "System_Top_Integrated.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "System_Top_Integrated"
+Output Format                      : NGC
+Target Device                      : xc6slx25-3-fgg484
+
+---- Source Options
+Top Module Name                    : System_Top_Integrated
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "D:\Code Prj\FPGA-Based Hardware Accelerator\Github\rtl_src\da_fir_filter.v" into library work
+Parsing module <da_fir_filter>.
+Analyzing Verilog file "D:\Code Prj\FPGA-Based Hardware Accelerator\Github\rtl_src\CORDIC_HDL_Core_fixpt.v" into library work
+Parsing module <CORDIC_HDL_Core_fixpt>.
+Analyzing Verilog file "D:\Code Prj\FPGA-Based Hardware Accelerator\Github\rtl_src\cdc_handshake.v" into library work
+Parsing module <cdc_handshake>.
+Analyzing Verilog file "D:\Code Prj\FPGA-Based Hardware Accelerator\Github\rtl_src\adaptive_kalman_filter_1d.v" into library work
+Parsing module <adaptive_kalman_filter_1d>.
+Analyzing Verilog file "D:\Code Prj\FPGA-Based Hardware Accelerator\Github\rtl_src\System_Top_Integrated.v" into library work
+Parsing module <System_Top_Integrated>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating module <System_Top_Integrated>.
+
+Elaborating module <cdc_handshake(DATA_WIDTH=32)>.
+
+Elaborating module <CORDIC_HDL_Core_fixpt>.
+
+Elaborating module <adaptive_kalman_filter_1d>.
+
+Elaborating module <da_fir_filter>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <System_Top_Integrated>.
+    Related source file is "D:\Code Prj\FPGA-Based Hardware Accelerator\Github\rtl_src\System_Top_Integrated.v".
+    Set property "use_dsp48 = no" for signal <mult_x_lut>.
+    Set property "mult_style = lut" for signal <mult_x_lut>.
+    Set property "use_dsp48 = no" for signal <mult_y_lut>.
+    Set property "mult_style = lut" for signal <mult_y_lut>.
+INFO:Xst:3210 - "D:\Code Prj\FPGA-Based Hardware Accelerator\Github\rtl_src\System_Top_Integrated.v" line 124: Output port <v_est_out> of the instance <u_kalman_x> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\Code Prj\FPGA-Based Hardware Accelerator\Github\rtl_src\System_Top_Integrated.v" line 135: Output port <v_est_out> of the instance <u_kalman_y> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\Code Prj\FPGA-Based Hardware Accelerator\Github\rtl_src\System_Top_Integrated.v" line 135: Output port <filter_mode_out> of the instance <u_kalman_y> is unconnected or connected to loadless signal.
+    Found 224-bit register for signal <n0033>.
+    Found 14-bit register for signal <valid_pipe>.
+    Found 32-bit register for signal <mult_x_stage1>.
+    Found 32-bit register for signal <mult_y_stage1>.
+    Found 16-bit register for signal <mult_x<15:0>>.
+    Found 16-bit register for signal <mult_y<15:0>>.
+    Found 16-bit register for signal <clean_lidar_x>.
+    Found 16-bit register for signal <clean_lidar_y>.
+    Found 16-bit register for signal <clean_imu_accel>.
+    Found 1-bit register for signal <mult_vld_stage1>.
+    Found 1-bit register for signal <mult_vld>.
+    Found 1-bit register for signal <lidar_data_valid>.
+    Found 1-bit register for signal <imu_data_valid>.
+    Found 16x16-bit multiplier for signal <mult_x_lut> created at line 88.
+    Found 16x16-bit multiplier for signal <mult_y_lut> created at line 89.
+    Summary:
+	inferred   2 Multiplier(s).
+	inferred 386 D-type flip-flop(s).
+Unit <System_Top_Integrated> synthesized.
+
+Synthesizing Unit <cdc_handshake>.
+    Related source file is "D:\Code Prj\FPGA-Based Hardware Accelerator\Github\rtl_src\cdc_handshake.v".
+        DATA_WIDTH = 32
+    Found 32-bit register for signal <data_buffer>.
+    Found 32-bit register for signal <sys_data_out>.
+    Found 1-bit register for signal <ack_sync1>.
+    Found 1-bit register for signal <ack_sync2>.
+    Found 1-bit register for signal <req_toggle>.
+    Found 1-bit register for signal <req_sync1>.
+    Found 1-bit register for signal <req_sync2>.
+    Found 1-bit register for signal <req_sync2_d>.
+    Found 1-bit register for signal <ack_toggle>.
+    Found 1-bit register for signal <sys_data_valid>.
+    Found 1-bit comparator equal for signal <sensor_ready> created at line 41
+    Found 1-bit comparator equal for signal <n0009> created at line 104
+    Summary:
+	inferred  72 D-type flip-flop(s).
+	inferred   2 Comparator(s).
+Unit <cdc_handshake> synthesized.
+
+Synthesizing Unit <CORDIC_HDL_Core_fixpt>.
+    Related source file is "D:\Code Prj\FPGA-Based Hardware Accelerator\Github\rtl_src\CORDIC_HDL_Core_fixpt.v".
+    Register <n0954_dummy_dummy_dummy_dummy_dummy_dummy_dummy> equivalent to <n0954> has been removed
+    Register <n0954_dummy_dummy_dummy_dummy_dummy_dummy> equivalent to <n0954> has been removed
+    Register <n0954_dummy_dummy_dummy_dummy_dummy> equivalent to <n0954> has been removed
+    Register <n0954_dummy_dummy_dummy_dummy> equivalent to <n0954> has been removed
+    Register <n0954_dummy_dummy_dummy> equivalent to <n0954> has been removed
+    Register <n0954_dummy_dummy> equivalent to <n0954> has been removed
+    Register <n0954_dummy> equivalent to <n0954> has been removed
+    Found 208-bit register for signal <n0954_dummy_dummy_dummy_dummy_dummy_dummy_dummy_dummy>.
+    Found 208-bit register for signal <n0955>.
+    Found 16-bit register for signal <x_out_reg>.
+    Found 16-bit register for signal <y_out_reg>.
+    Found 1-bit register for signal <z_pipe<0><15>>.
+    Found 1-bit register for signal <z_pipe<0><14>>.
+    Found 1-bit register for signal <z_pipe<0><13>>.
+    Found 1-bit register for signal <z_pipe<0><12>>.
+    Found 1-bit register for signal <z_pipe<0><11>>.
+    Found 1-bit register for signal <z_pipe<0><10>>.
+    Found 1-bit register for signal <z_pipe<0><9>>.
+    Found 1-bit register for signal <z_pipe<0><8>>.
+    Found 1-bit register for signal <z_pipe<0><7>>.
+    Found 1-bit register for signal <z_pipe<0><6>>.
+    Found 1-bit register for signal <z_pipe<0><5>>.
+    Found 1-bit register for signal <z_pipe<0><4>>.
+    Found 1-bit register for signal <z_pipe<0><3>>.
+    Found 1-bit register for signal <z_pipe<0><2>>.
+    Found 1-bit register for signal <z_pipe<0><1>>.
+    Found 1-bit register for signal <z_pipe<0><0>>.
+    Found 1-bit register for signal <z_pipe<1><15>>.
+    Found 1-bit register for signal <z_pipe<1><14>>.
+    Found 1-bit register for signal <z_pipe<1><13>>.
+    Found 1-bit register for signal <z_pipe<1><12>>.
+    Found 1-bit register for signal <z_pipe<1><11>>.
+    Found 1-bit register for signal <z_pipe<1><10>>.
+    Found 1-bit register for signal <z_pipe<1><9>>.
+    Found 1-bit register for signal <z_pipe<1><8>>.
+    Found 1-bit register for signal <z_pipe<1><7>>.
+    Found 1-bit register for signal <z_pipe<1><6>>.
+    Found 1-bit register for signal <z_pipe<1><5>>.
+    Found 1-bit register for signal <z_pipe<1><4>>.
+    Found 1-bit register for signal <z_pipe<1><3>>.
+    Found 1-bit register for signal <z_pipe<1><2>>.
+    Found 1-bit register for signal <z_pipe<1><1>>.
+    Found 1-bit register for signal <z_pipe<1><0>>.
+    Found 1-bit register for signal <z_pipe<2><15>>.
+    Found 1-bit register for signal <z_pipe<2><14>>.
+    Found 1-bit register for signal <z_pipe<2><13>>.
+    Found 1-bit register for signal <z_pipe<2><12>>.
+    Found 1-bit register for signal <z_pipe<2><11>>.
+    Found 1-bit register for signal <z_pipe<2><10>>.
+    Found 1-bit register for signal <z_pipe<2><9>>.
+    Found 1-bit register for signal <z_pipe<2><8>>.
+    Found 1-bit register for signal <z_pipe<2><7>>.
+    Found 1-bit register for signal <z_pipe<2><6>>.
+    Found 1-bit register for signal <z_pipe<2><5>>.
+    Found 1-bit register for signal <z_pipe<2><4>>.
+    Found 1-bit register for signal <z_pipe<2><3>>.
+    Found 1-bit register for signal <z_pipe<2><2>>.
+    Found 1-bit register for signal <z_pipe<2><1>>.
+    Found 1-bit register for signal <z_pipe<2><0>>.
+    Found 1-bit register for signal <z_pipe<3><15>>.
+    Found 1-bit register for signal <z_pipe<3><14>>.
+    Found 1-bit register for signal <z_pipe<3><13>>.
+    Found 1-bit register for signal <z_pipe<3><12>>.
+    Found 1-bit register for signal <z_pipe<3><11>>.
+    Found 1-bit register for signal <z_pipe<3><10>>.
+    Found 1-bit register for signal <z_pipe<3><9>>.
+    Found 1-bit register for signal <z_pipe<3><8>>.
+    Found 1-bit register for signal <z_pipe<3><7>>.
+    Found 1-bit register for signal <z_pipe<3><6>>.
+    Found 1-bit register for signal <z_pipe<3><5>>.
+    Found 1-bit register for signal <z_pipe<3><4>>.
+    Found 1-bit register for signal <z_pipe<3><3>>.
+    Found 1-bit register for signal <z_pipe<3><2>>.
+    Found 1-bit register for signal <z_pipe<3><1>>.
+    Found 1-bit register for signal <z_pipe<3><0>>.
+    Found 1-bit register for signal <z_pipe<4><15>>.
+    Found 1-bit register for signal <z_pipe<4><14>>.
+    Found 1-bit register for signal <z_pipe<4><13>>.
+    Found 1-bit register for signal <z_pipe<4><12>>.
+    Found 1-bit register for signal <z_pipe<4><11>>.
+    Found 1-bit register for signal <z_pipe<4><10>>.
+    Found 1-bit register for signal <z_pipe<4><9>>.
+    Found 1-bit register for signal <z_pipe<4><8>>.
+    Found 1-bit register for signal <z_pipe<4><7>>.
+    Found 1-bit register for signal <z_pipe<4><6>>.
+    Found 1-bit register for signal <z_pipe<4><5>>.
+    Found 1-bit register for signal <z_pipe<4><4>>.
+    Found 1-bit register for signal <z_pipe<4><3>>.
+    Found 1-bit register for signal <z_pipe<4><2>>.
+    Found 1-bit register for signal <z_pipe<4><1>>.
+    Found 1-bit register for signal <z_pipe<4><0>>.
+    Found 1-bit register for signal <z_pipe<5><15>>.
+    Found 1-bit register for signal <z_pipe<5><14>>.
+    Found 1-bit register for signal <z_pipe<5><13>>.
+    Found 1-bit register for signal <z_pipe<5><12>>.
+    Found 1-bit register for signal <z_pipe<5><11>>.
+    Found 1-bit register for signal <z_pipe<5><10>>.
+    Found 1-bit register for signal <z_pipe<5><9>>.
+    Found 1-bit register for signal <z_pipe<5><8>>.
+    Found 1-bit register for signal <z_pipe<5><7>>.
+    Found 1-bit register for signal <z_pipe<5><6>>.
+    Found 1-bit register for signal <z_pipe<5><5>>.
+    Found 1-bit register for signal <z_pipe<5><4>>.
+    Found 1-bit register for signal <z_pipe<5><3>>.
+    Found 1-bit register for signal <z_pipe<5><2>>.
+    Found 1-bit register for signal <z_pipe<5><1>>.
+    Found 1-bit register for signal <z_pipe<5><0>>.
+    Found 1-bit register for signal <z_pipe<6><15>>.
+    Found 1-bit register for signal <z_pipe<6><14>>.
+    Found 1-bit register for signal <z_pipe<6><13>>.
+    Found 1-bit register for signal <z_pipe<6><12>>.
+    Found 1-bit register for signal <z_pipe<6><11>>.
+    Found 1-bit register for signal <z_pipe<6><10>>.
+    Found 1-bit register for signal <z_pipe<6><9>>.
+    Found 1-bit register for signal <z_pipe<6><8>>.
+    Found 1-bit register for signal <z_pipe<6><7>>.
+    Found 1-bit register for signal <z_pipe<6><6>>.
+    Found 1-bit register for signal <z_pipe<6><5>>.
+    Found 1-bit register for signal <z_pipe<6><4>>.
+    Found 1-bit register for signal <z_pipe<6><3>>.
+    Found 1-bit register for signal <z_pipe<6><2>>.
+    Found 1-bit register for signal <z_pipe<6><1>>.
+    Found 1-bit register for signal <z_pipe<6><0>>.
+    Found 1-bit register for signal <z_pipe<7><15>>.
+    Found 1-bit register for signal <z_pipe<7><14>>.
+    Found 1-bit register for signal <z_pipe<7><13>>.
+    Found 1-bit register for signal <z_pipe<7><12>>.
+    Found 1-bit register for signal <z_pipe<7><11>>.
+    Found 1-bit register for signal <z_pipe<7><10>>.
+    Found 1-bit register for signal <z_pipe<7><9>>.
+    Found 1-bit register for signal <z_pipe<7><8>>.
+    Found 1-bit register for signal <z_pipe<7><7>>.
+    Found 1-bit register for signal <z_pipe<7><6>>.
+    Found 1-bit register for signal <z_pipe<7><5>>.
+    Found 1-bit register for signal <z_pipe<7><4>>.
+    Found 1-bit register for signal <z_pipe<7><3>>.
+    Found 1-bit register for signal <z_pipe<7><2>>.
+    Found 1-bit register for signal <z_pipe<7><1>>.
+    Found 1-bit register for signal <z_pipe<7><0>>.
+    Found 1-bit register for signal <z_pipe<8><15>>.
+    Found 1-bit register for signal <z_pipe<8><14>>.
+    Found 1-bit register for signal <z_pipe<8><13>>.
+    Found 1-bit register for signal <z_pipe<8><12>>.
+    Found 1-bit register for signal <z_pipe<8><11>>.
+    Found 1-bit register for signal <z_pipe<8><10>>.
+    Found 1-bit register for signal <z_pipe<8><9>>.
+    Found 1-bit register for signal <z_pipe<8><8>>.
+    Found 1-bit register for signal <z_pipe<8><7>>.
+    Found 1-bit register for signal <z_pipe<8><6>>.
+    Found 1-bit register for signal <z_pipe<8><5>>.
+    Found 1-bit register for signal <z_pipe<8><4>>.
+    Found 1-bit register for signal <z_pipe<8><3>>.
+    Found 1-bit register for signal <z_pipe<8><2>>.
+    Found 1-bit register for signal <z_pipe<8><1>>.
+    Found 1-bit register for signal <z_pipe<8><0>>.
+    Found 1-bit register for signal <z_pipe<9><15>>.
+    Found 1-bit register for signal <z_pipe<9><14>>.
+    Found 1-bit register for signal <z_pipe<9><13>>.
+    Found 1-bit register for signal <z_pipe<9><12>>.
+    Found 1-bit register for signal <z_pipe<9><11>>.
+    Found 1-bit register for signal <z_pipe<9><10>>.
+    Found 1-bit register for signal <z_pipe<9><9>>.
+    Found 1-bit register for signal <z_pipe<9><8>>.
+    Found 1-bit register for signal <z_pipe<9><7>>.
+    Found 1-bit register for signal <z_pipe<9><6>>.
+    Found 1-bit register for signal <z_pipe<9><5>>.
+    Found 1-bit register for signal <z_pipe<9><4>>.
+    Found 1-bit register for signal <z_pipe<9><3>>.
+    Found 1-bit register for signal <z_pipe<9><2>>.
+    Found 1-bit register for signal <z_pipe<9><1>>.
+    Found 1-bit register for signal <z_pipe<9><0>>.
+    Found 1-bit register for signal <z_pipe<10><15>>.
+    Found 1-bit register for signal <z_pipe<10><14>>.
+    Found 1-bit register for signal <z_pipe<10><13>>.
+    Found 1-bit register for signal <z_pipe<10><12>>.
+    Found 1-bit register for signal <z_pipe<10><11>>.
+    Found 1-bit register for signal <z_pipe<10><10>>.
+    Found 1-bit register for signal <z_pipe<10><9>>.
+    Found 1-bit register for signal <z_pipe<10><8>>.
+    Found 1-bit register for signal <z_pipe<10><7>>.
+    Found 1-bit register for signal <z_pipe<10><6>>.
+    Found 1-bit register for signal <z_pipe<10><5>>.
+    Found 1-bit register for signal <z_pipe<10><4>>.
+    Found 1-bit register for signal <z_pipe<10><3>>.
+    Found 1-bit register for signal <z_pipe<10><2>>.
+    Found 1-bit register for signal <z_pipe<10><1>>.
+    Found 1-bit register for signal <z_pipe<10><0>>.
+    Found 1-bit register for signal <z_pipe<11><15>>.
+    Found 1-bit register for signal <z_pipe<11><14>>.
+    Found 1-bit register for signal <z_pipe<11><13>>.
+    Found 1-bit register for signal <z_pipe<11><12>>.
+    Found 1-bit register for signal <z_pipe<11><11>>.
+    Found 1-bit register for signal <z_pipe<11><10>>.
+    Found 1-bit register for signal <z_pipe<11><9>>.
+    Found 1-bit register for signal <z_pipe<11><8>>.
+    Found 1-bit register for signal <z_pipe<11><7>>.
+    Found 1-bit register for signal <z_pipe<11><6>>.
+    Found 1-bit register for signal <z_pipe<11><5>>.
+    Found 1-bit register for signal <z_pipe<11><4>>.
+    Found 1-bit register for signal <z_pipe<11><3>>.
+    Found 1-bit register for signal <z_pipe<11><2>>.
+    Found 1-bit register for signal <z_pipe<11><1>>.
+    Found 1-bit register for signal <z_pipe<11><0>>.
+    Found 1-bit register for signal <z_pipe<12><15>>.
+    Found 1-bit register for signal <z_pipe<12><14>>.
+    Found 1-bit register for signal <z_pipe<12><13>>.
+    Found 1-bit register for signal <z_pipe<12><12>>.
+    Found 1-bit register for signal <z_pipe<12><11>>.
+    Found 1-bit register for signal <z_pipe<12><10>>.
+    Found 1-bit register for signal <z_pipe<12><9>>.
+    Found 1-bit register for signal <z_pipe<12><8>>.
+    Found 1-bit register for signal <z_pipe<12><7>>.
+    Found 1-bit register for signal <z_pipe<12><6>>.
+    Found 1-bit register for signal <z_pipe<12><5>>.
+    Found 1-bit register for signal <z_pipe<12><4>>.
+    Found 1-bit register for signal <z_pipe<12><3>>.
+    Found 1-bit register for signal <z_pipe<12><2>>.
+    Found 1-bit register for signal <z_pipe<12><1>>.
+    Found 1-bit register for signal <z_pipe<12><0>>.
+    Found 1-bit register for signal <x_pipe[0][15]_y_pipe[0][15]_add_20_OUT<12>>.
+    Found 16-bit subtractor for signal <z_pipe[0][15]_atan_table[0][15]_sub_20_OUT> created at line 5413.
+    Found 16-bit subtractor for signal <x_pipe[1][15]_y_pipe[1][15]_sub_25_OUT> created at line 5422.
+    Found 16-bit subtractor for signal <z_pipe[1][15]_atan_table[1][15]_sub_27_OUT> created at line 5424.
+    Found 16-bit subtractor for signal <y_pipe[1][15]_x_pipe[1][15]_sub_29_OUT> created at line 5427.
+    Found 16-bit subtractor for signal <x_pipe[2][15]_y_pipe[2][15]_sub_32_OUT> created at line 5433.
+    Found 16-bit subtractor for signal <z_pipe[2][15]_atan_table[2][15]_sub_34_OUT> created at line 5435.
+    Found 16-bit subtractor for signal <y_pipe[2][15]_x_pipe[2][15]_sub_36_OUT> created at line 5438.
+    Found 16-bit subtractor for signal <x_pipe[3][15]_y_pipe[3][15]_sub_39_OUT> created at line 5444.
+    Found 16-bit subtractor for signal <z_pipe[3][15]_atan_table[3][15]_sub_41_OUT> created at line 5446.
+    Found 16-bit subtractor for signal <y_pipe[3][15]_x_pipe[3][15]_sub_43_OUT> created at line 5449.
+    Found 16-bit subtractor for signal <x_pipe[4][15]_y_pipe[4][15]_sub_46_OUT> created at line 5455.
+    Found 16-bit subtractor for signal <z_pipe[4][15]_atan_table[4][15]_sub_48_OUT> created at line 5457.
+    Found 16-bit subtractor for signal <y_pipe[4][15]_x_pipe[4][15]_sub_50_OUT> created at line 5460.
+    Found 16-bit subtractor for signal <x_pipe[5][15]_y_pipe[5][15]_sub_53_OUT> created at line 5466.
+    Found 16-bit subtractor for signal <z_pipe[5][15]_atan_table[5][15]_sub_55_OUT> created at line 5468.
+    Found 16-bit subtractor for signal <y_pipe[5][15]_x_pipe[5][15]_sub_57_OUT> created at line 5471.
+    Found 16-bit subtractor for signal <x_pipe[6][15]_y_pipe[6][15]_sub_60_OUT> created at line 5477.
+    Found 16-bit subtractor for signal <z_pipe[6][15]_atan_table[6][15]_sub_62_OUT> created at line 5479.
+    Found 16-bit subtractor for signal <y_pipe[6][15]_x_pipe[6][15]_sub_64_OUT> created at line 5482.
+    Found 16-bit subtractor for signal <x_pipe[7][15]_y_pipe[7][15]_sub_67_OUT> created at line 5488.
+    Found 16-bit subtractor for signal <z_pipe[7][15]_atan_table[7][15]_sub_69_OUT> created at line 5490.
+    Found 16-bit subtractor for signal <y_pipe[7][15]_x_pipe[7][15]_sub_71_OUT> created at line 5493.
+    Found 16-bit subtractor for signal <x_pipe[8][15]_y_pipe[8][15]_sub_74_OUT> created at line 5499.
+    Found 16-bit subtractor for signal <z_pipe[8][15]_atan_table[8][15]_sub_76_OUT> created at line 5501.
+    Found 16-bit subtractor for signal <y_pipe[8][15]_x_pipe[8][15]_sub_78_OUT> created at line 5504.
+    Found 16-bit subtractor for signal <x_pipe[9][15]_y_pipe[9][15]_sub_81_OUT> created at line 5510.
+    Found 16-bit subtractor for signal <z_pipe[9][15]_atan_table[9][15]_sub_83_OUT> created at line 5512.
+    Found 16-bit subtractor for signal <y_pipe[9][15]_x_pipe[9][15]_sub_85_OUT> created at line 5515.
+    Found 16-bit subtractor for signal <x_pipe[10][15]_y_pipe[10][15]_sub_88_OUT> created at line 5521.
+    Found 16-bit subtractor for signal <z_pipe[10][15]_atan_table[10][15]_sub_90_OUT> created at line 5523.
+    Found 16-bit subtractor for signal <y_pipe[10][15]_x_pipe[10][15]_sub_92_OUT> created at line 5526.
+    Found 16-bit subtractor for signal <x_pipe[11][15]_y_pipe[11][15]_sub_95_OUT> created at line 5532.
+    Found 16-bit subtractor for signal <z_pipe[11][15]_atan_table[11][15]_sub_97_OUT> created at line 5534.
+    Found 16-bit subtractor for signal <y_pipe[11][15]_x_pipe[11][15]_sub_99_OUT> created at line 5537.
+    Found 16-bit subtractor for signal <x_pipe[12][15]_y_pipe[12][15]_sub_102_OUT> created at line 5543.
+    Found 16-bit subtractor for signal <y_pipe[12][15]_x_pipe[12][15]_sub_105_OUT> created at line 5547.
+    Found 16-bit adder for signal <z_pipe[0][15]_atan_table[0][15]_add_22_OUT> created at line 5417.
+    Found 16-bit adder for signal <y_pipe[1][15]_x_pipe[1][15]_add_25_OUT> created at line 5423.
+    Found 16-bit adder for signal <x_pipe[1][15]_y_pipe[1][15]_add_27_OUT> created at line 5426.
+    Found 16-bit adder for signal <z_pipe[1][15]_atan_table[1][15]_add_29_OUT> created at line 5428.
+    Found 16-bit adder for signal <y_pipe[2][15]_x_pipe[2][15]_add_32_OUT> created at line 5434.
+    Found 16-bit adder for signal <x_pipe[2][15]_y_pipe[2][15]_add_34_OUT> created at line 5437.
+    Found 16-bit adder for signal <z_pipe[2][15]_atan_table[2][15]_add_36_OUT> created at line 5439.
+    Found 16-bit adder for signal <y_pipe[3][15]_x_pipe[3][15]_add_39_OUT> created at line 5445.
+    Found 16-bit adder for signal <x_pipe[3][15]_y_pipe[3][15]_add_41_OUT> created at line 5448.
+    Found 16-bit adder for signal <z_pipe[3][15]_atan_table[3][15]_add_43_OUT> created at line 5450.
+    Found 16-bit adder for signal <y_pipe[4][15]_x_pipe[4][15]_add_46_OUT> created at line 5456.
+    Found 16-bit adder for signal <x_pipe[4][15]_y_pipe[4][15]_add_48_OUT> created at line 5459.
+    Found 16-bit adder for signal <z_pipe[4][15]_atan_table[4][15]_add_50_OUT> created at line 5461.
+    Found 16-bit adder for signal <y_pipe[5][15]_x_pipe[5][15]_add_53_OUT> created at line 5467.
+    Found 16-bit adder for signal <x_pipe[5][15]_y_pipe[5][15]_add_55_OUT> created at line 5470.
+    Found 16-bit adder for signal <z_pipe[5][15]_atan_table[5][15]_add_57_OUT> created at line 5472.
+    Found 16-bit adder for signal <y_pipe[6][15]_x_pipe[6][15]_add_60_OUT> created at line 5478.
+    Found 16-bit adder for signal <x_pipe[6][15]_y_pipe[6][15]_add_62_OUT> created at line 5481.
+    Found 16-bit adder for signal <z_pipe[6][15]_atan_table[6][15]_add_64_OUT> created at line 5483.
+    Found 16-bit adder for signal <y_pipe[7][15]_x_pipe[7][15]_add_67_OUT> created at line 5489.
+    Found 16-bit adder for signal <x_pipe[7][15]_y_pipe[7][15]_add_69_OUT> created at line 5492.
+    Found 16-bit adder for signal <z_pipe[7][15]_atan_table[7][15]_add_71_OUT> created at line 5494.
+    Found 16-bit adder for signal <y_pipe[8][15]_x_pipe[8][15]_add_74_OUT> created at line 5500.
+    Found 16-bit adder for signal <x_pipe[8][15]_y_pipe[8][15]_add_76_OUT> created at line 5503.
+    Found 16-bit adder for signal <z_pipe[8][15]_atan_table[8][15]_add_78_OUT> created at line 5505.
+    Found 16-bit adder for signal <y_pipe[9][15]_x_pipe[9][15]_add_81_OUT> created at line 5511.
+    Found 16-bit adder for signal <x_pipe[9][15]_y_pipe[9][15]_add_83_OUT> created at line 5514.
+    Found 16-bit adder for signal <z_pipe[9][15]_atan_table[9][15]_add_85_OUT> created at line 5516.
+    Found 16-bit adder for signal <y_pipe[10][15]_x_pipe[10][15]_add_88_OUT> created at line 5522.
+    Found 16-bit adder for signal <x_pipe[10][15]_y_pipe[10][15]_add_90_OUT> created at line 5525.
+    Found 16-bit adder for signal <z_pipe[10][15]_atan_table[10][15]_add_92_OUT> created at line 5527.
+    Found 16-bit adder for signal <y_pipe[11][15]_x_pipe[11][15]_add_95_OUT> created at line 5533.
+    Found 16-bit adder for signal <x_pipe[11][15]_y_pipe[11][15]_add_97_OUT> created at line 5536.
+    Found 16-bit adder for signal <z_pipe[11][15]_atan_table[11][15]_add_99_OUT> created at line 5538.
+    Found 16-bit adder for signal <y_pipe[12][15]_x_pipe[12][15]_add_102_OUT> created at line 5544.
+    Found 16-bit adder for signal <x_pipe[12][15]_y_pipe[12][15]_add_103_OUT> created at line 5546.
+    Found 16-bit subtractor for signal <y_pipe[0][15]_x_pipe[0][15]_sub_22_OUT> created at line 5416.
+    Found 32-bit comparator lessequal for signal <n0015> created at line 5410
+    Found 32-bit comparator lessequal for signal <n0071> created at line 5421
+    Found 32-bit comparator lessequal for signal <n0127> created at line 5432
+    Found 32-bit comparator lessequal for signal <n0183> created at line 5443
+    Found 32-bit comparator lessequal for signal <n0239> created at line 5454
+    Found 32-bit comparator lessequal for signal <n0295> created at line 5465
+    Found 32-bit comparator lessequal for signal <n0351> created at line 5476
+    Found 32-bit comparator lessequal for signal <n0407> created at line 5487
+    Found 32-bit comparator lessequal for signal <n0463> created at line 5498
+    Found 32-bit comparator lessequal for signal <n0519> created at line 5509
+    Found 32-bit comparator lessequal for signal <n0575> created at line 5520
+    Found 32-bit comparator lessequal for signal <n0631> created at line 5531
+    Found 32-bit comparator lessequal for signal <n0687> created at line 5542
+    WARNING:Xst:2404 -  FFs/Latches <n0954<223:221>> (without init value) have a constant value of 0 in block <CORDIC_HDL_Core_fixpt>.
+    WARNING:Xst:2404 -  FFs/Latches <n0954<219:218>> (without init value) have a constant value of 0 in block <CORDIC_HDL_Core_fixpt>.
+    WARNING:Xst:2404 -  FFs/Latches <n0954<215:215>> (without init value) have a constant value of 0 in block <CORDIC_HDL_Core_fixpt>.
+    WARNING:Xst:2404 -  FFs/Latches <n0954<213:213>> (without init value) have a constant value of 0 in block <CORDIC_HDL_Core_fixpt>.
+    WARNING:Xst:2404 -  FFs/Latches <n0954<210:210>> (without init value) have a constant value of 0 in block <CORDIC_HDL_Core_fixpt>.
+    WARNING:Xst:2404 -  FFs/Latches <n0955<223:208>> (without init value) have a constant value of 0 in block <CORDIC_HDL_Core_fixpt>.
+    Summary:
+	inferred  73 Adder/Subtractor(s).
+	inferred 657 D-type flip-flop(s).
+	inferred  13 Comparator(s).
+	inferred 592 Multiplexer(s).
+Unit <CORDIC_HDL_Core_fixpt> synthesized.
+
+Synthesizing Unit <adaptive_kalman_filter_1d>.
+    Related source file is "D:\Code Prj\FPGA-Based Hardware Accelerator\Github\rtl_src\adaptive_kalman_filter_1d.v".
+    Found 16-bit register for signal <v_est>.
+    Found 16-bit register for signal <x_est_out>.
+    Found 16-bit register for signal <v_est_out>.
+    Found 16-bit register for signal <x_est>.
+    Found 2-bit register for signal <filter_mode_out>.
+    Found 1-bit register for signal <valid_out>.
+    Found 16-bit subtractor for signal <innovation> created at line 35.
+    Found 16-bit subtractor for signal <innovation[15]_unary_minus_4_OUT> created at line 37.
+    Found 16-bit adder for signal <x_pred> created at line 34.
+    Found 16-bit adder for signal <x_pred[15]_alpha_update[15]_add_11_OUT> created at line 72.
+    Found 16-bit adder for signal <v_est[15]_beta_update[15]_add_12_OUT> created at line 73.
+    Found 32-bit comparator greater for signal <GND_21_o_innovation[15]_LessThan_3_o> created at line 37
+    Found 16-bit comparator greater for signal <abs_innovation[15]_GND_21_o_LessThan_6_o> created at line 41
+    Found 16-bit comparator greater for signal <abs_innovation[15]_GND_21_o_LessThan_7_o> created at line 46
+    Summary:
+	inferred   5 Adder/Subtractor(s).
+	inferred  67 D-type flip-flop(s).
+	inferred   3 Comparator(s).
+	inferred  51 Multiplexer(s).
+Unit <adaptive_kalman_filter_1d> synthesized.
+
+Synthesizing Unit <da_fir_filter>.
+    Related source file is "D:\Code Prj\FPGA-Based Hardware Accelerator\Github\rtl_src\da_fir_filter.v".
+WARNING:Xst:2999 - Signal 'da_lut', unconnected in block 'da_fir_filter', is tied to its initial value.
+    Found 16x16-bit single-port Read Only RAM <Mram_da_lut> for signal <da_lut>.
+    Found 16-bit register for signal <y_out>.
+    Found 64-bit register for signal <n0012[63:0]>.
+    Found 1-bit register for signal <valid_out>.
+    Found 16-bit adder for signal <n0032> created at line 56.
+    Found 16-bit adder for signal <n0035> created at line 56.
+    Found 16-bit adder for signal <n0038> created at line 56.
+    Found 16-bit adder for signal <tap[0][15]_tap[3][15]_add_4_OUT> created at line 56.
+    Summary:
+	inferred   1 RAM(s).
+	inferred   4 Adder/Subtractor(s).
+	inferred  81 D-type flip-flop(s).
+Unit <da_fir_filter> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 1
+ 16x16-bit single-port Read Only RAM                   : 1
+# Multipliers                                          : 2
+ 16x16-bit multiplier                                  : 2
+# Adders/Subtractors                                   : 87
+ 16-bit adder                                          : 46
+ 16-bit subtractor                                     : 41
+# Registers                                            : 251
+ 1-bit register                                        : 224
+ 14-bit register                                       : 1
+ 16-bit register                                       : 16
+ 2-bit register                                        : 2
+ 208-bit register                                      : 2
+ 224-bit register                                      : 1
+ 32-bit register                                       : 4
+ 64-bit register                                       : 1
+# Comparators                                          : 21
+ 1-bit comparator equal                                : 2
+ 16-bit comparator greater                             : 4
+ 32-bit comparator greater                             : 2
+ 32-bit comparator lessequal                           : 13
+# Multiplexers                                         : 694
+ 1-bit 2-to-1 multiplexer                              : 690
+ 16-bit 2-to-1 multiplexer                             : 2
+ 2-bit 2-to-1 multiplexer                              : 2
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+INFO:Xst:2261 - The FF/Latch <n0954_dummy_dummy_dummy_dummy_dummy_dummy_dummy_dummy_193> in Unit <u_cordic> is equivalent to the following 7 FFs/Latches, which will be removed : <n0954_dummy_dummy_dummy_dummy_dummy_dummy_dummy_dummy_194> <n0954_dummy_dummy_dummy_dummy_dummy_dummy_dummy_dummy_195> <n0954_dummy_dummy_dummy_dummy_dummy_dummy_dummy_dummy_197> <n0954_dummy_dummy_dummy_dummy_dummy_dummy_dummy_dummy_198> <n0954_dummy_dummy_dummy_dummy_dummy_dummy_dummy_dummy_200> <n0954_dummy_dummy_dummy_dummy_dummy_dummy_dummy_dummy_201> <n0954_dummy_dummy_dummy_dummy_dummy_dummy_dummy_dummy_204> 
+INFO:Xst:2261 - The FF/Latch <n0954_dummy_dummy_dummy_dummy_dummy_dummy_dummy_dummy_192> in Unit <u_cordic> is equivalent to the following 7 FFs/Latches, which will be removed : <n0954_dummy_dummy_dummy_dummy_dummy_dummy_dummy_dummy_196> <n0954_dummy_dummy_dummy_dummy_dummy_dummy_dummy_dummy_199> <n0954_dummy_dummy_dummy_dummy_dummy_dummy_dummy_dummy_202> <n0954_dummy_dummy_dummy_dummy_dummy_dummy_dummy_dummy_203> <n0954_dummy_dummy_dummy_dummy_dummy_dummy_dummy_dummy_205> <n0954_dummy_dummy_dummy_dummy_dummy_dummy_dummy_dummy_206> <n0954_dummy_dummy_dummy_dummy_dummy_dummy_dummy_dummy_207> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_6> in Unit <u_kalman_x> is equivalent to the following FF/Latch, which will be removed : <x_est_6> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_7> in Unit <u_kalman_x> is equivalent to the following FF/Latch, which will be removed : <x_est_7> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_8> in Unit <u_kalman_x> is equivalent to the following FF/Latch, which will be removed : <x_est_8> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_9> in Unit <u_kalman_x> is equivalent to the following FF/Latch, which will be removed : <x_est_9> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_10> in Unit <u_kalman_x> is equivalent to the following FF/Latch, which will be removed : <x_est_10> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_11> in Unit <u_kalman_x> is equivalent to the following FF/Latch, which will be removed : <x_est_11> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_12> in Unit <u_kalman_x> is equivalent to the following FF/Latch, which will be removed : <x_est_12> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_13> in Unit <u_kalman_x> is equivalent to the following FF/Latch, which will be removed : <x_est_13> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_14> in Unit <u_kalman_x> is equivalent to the following FF/Latch, which will be removed : <x_est_14> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_15> in Unit <u_kalman_x> is equivalent to the following FF/Latch, which will be removed : <x_est_15> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_0> in Unit <u_kalman_x> is equivalent to the following FF/Latch, which will be removed : <x_est_0> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_1> in Unit <u_kalman_x> is equivalent to the following FF/Latch, which will be removed : <x_est_1> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_2> in Unit <u_kalman_x> is equivalent to the following FF/Latch, which will be removed : <x_est_2> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_3> in Unit <u_kalman_x> is equivalent to the following FF/Latch, which will be removed : <x_est_3> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_4> in Unit <u_kalman_x> is equivalent to the following FF/Latch, which will be removed : <x_est_4> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_5> in Unit <u_kalman_x> is equivalent to the following FF/Latch, which will be removed : <x_est_5> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_6> in Unit <u_kalman_y> is equivalent to the following FF/Latch, which will be removed : <x_est_6> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_7> in Unit <u_kalman_y> is equivalent to the following FF/Latch, which will be removed : <x_est_7> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_8> in Unit <u_kalman_y> is equivalent to the following FF/Latch, which will be removed : <x_est_8> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_9> in Unit <u_kalman_y> is equivalent to the following FF/Latch, which will be removed : <x_est_9> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_10> in Unit <u_kalman_y> is equivalent to the following FF/Latch, which will be removed : <x_est_10> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_11> in Unit <u_kalman_y> is equivalent to the following FF/Latch, which will be removed : <x_est_11> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_12> in Unit <u_kalman_y> is equivalent to the following FF/Latch, which will be removed : <x_est_12> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_13> in Unit <u_kalman_y> is equivalent to the following FF/Latch, which will be removed : <x_est_13> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_14> in Unit <u_kalman_y> is equivalent to the following FF/Latch, which will be removed : <x_est_14> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_15> in Unit <u_kalman_y> is equivalent to the following FF/Latch, which will be removed : <x_est_15> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_0> in Unit <u_kalman_y> is equivalent to the following FF/Latch, which will be removed : <x_est_0> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_1> in Unit <u_kalman_y> is equivalent to the following FF/Latch, which will be removed : <x_est_1> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_2> in Unit <u_kalman_y> is equivalent to the following FF/Latch, which will be removed : <x_est_2> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_3> in Unit <u_kalman_y> is equivalent to the following FF/Latch, which will be removed : <x_est_3> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_4> in Unit <u_kalman_y> is equivalent to the following FF/Latch, which will be removed : <x_est_4> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_5> in Unit <u_kalman_y> is equivalent to the following FF/Latch, which will be removed : <x_est_5> 
+WARNING:Xst:1710 - FF/Latch <n0954_dummy_dummy_dummy_dummy_dummy_dummy_dummy_dummy_192> (without init value) has a constant value of 0 in block <u_cordic>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <tap_3_0> of sequential type is unconnected in block <u_imu_fir>.
+WARNING:Xst:2677 - Node <tap_3_1> of sequential type is unconnected in block <u_imu_fir>.
+WARNING:Xst:2677 - Node <tap_3_2> of sequential type is unconnected in block <u_imu_fir>.
+WARNING:Xst:2677 - Node <tap_3_16> of sequential type is unconnected in block <u_imu_fir>.
+WARNING:Xst:2677 - Node <tap_3_17> of sequential type is unconnected in block <u_imu_fir>.
+WARNING:Xst:2677 - Node <tap_3_32> of sequential type is unconnected in block <u_imu_fir>.
+WARNING:Xst:2677 - Node <tap_3_33> of sequential type is unconnected in block <u_imu_fir>.
+WARNING:Xst:2677 - Node <tap_3_48> of sequential type is unconnected in block <u_imu_fir>.
+WARNING:Xst:2677 - Node <tap_3_49> of sequential type is unconnected in block <u_imu_fir>.
+WARNING:Xst:2677 - Node <mult_x_stage1_0> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_1> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_2> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_3> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_4> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_5> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_6> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_7> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_8> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_9> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_10> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_11> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_12> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_29> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_30> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_31> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_0> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_1> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_2> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_3> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_4> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_5> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_6> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_7> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_8> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_9> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_10> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_11> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_12> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_29> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_30> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_31> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2404 -  FFs/Latches <n0954_dummy_dummy_dummy_dummy_dummy_dummy_dummy_dummy<207:205>> (without init value) have a constant value of 0 in block <CORDIC_HDL_Core_fixpt>.
+
+Synthesizing (advanced) Unit <adaptive_kalman_filter_1d>.
+The following registers are absorbed into accumulator <v_est>: 1 register on signal <v_est>.
+Unit <adaptive_kalman_filter_1d> synthesized (advanced).
+
+Synthesizing (advanced) Unit <da_fir_filter>.
+	The following adders/subtractors are grouped into adder tree <Madd_tap[0][15]_tap[3][15]_add_4_OUT1> :
+ 	<Madd_n0032> in block <da_fir_filter>, 	<Madd_n0035> in block <da_fir_filter>, 	<Madd_n0038> in block <da_fir_filter>, 	<Madd_tap[0][15]_tap[3][15]_add_4_OUT> in block <da_fir_filter>.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_da_lut> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 16-word x 16-bit                    |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <(n0012[63:0]<63>,n0012[63:0]<47>,n0012[63:0]<31>,n0012[63:0]<15>)> |          |
+    |     diA            | connected to signal <GND>           |          |
+    -----------------------------------------------------------------------
+Unit <da_fir_filter> synthesized (advanced).
+WARNING:Xst:2677 - Node <tap_3_0> of sequential type is unconnected in block <da_fir_filter>.
+WARNING:Xst:2677 - Node <tap_3_1> of sequential type is unconnected in block <da_fir_filter>.
+WARNING:Xst:2677 - Node <tap_3_2> of sequential type is unconnected in block <da_fir_filter>.
+WARNING:Xst:2677 - Node <tap_3_16> of sequential type is unconnected in block <da_fir_filter>.
+WARNING:Xst:2677 - Node <tap_3_17> of sequential type is unconnected in block <da_fir_filter>.
+WARNING:Xst:2677 - Node <tap_3_32> of sequential type is unconnected in block <da_fir_filter>.
+WARNING:Xst:2677 - Node <tap_3_33> of sequential type is unconnected in block <da_fir_filter>.
+WARNING:Xst:2677 - Node <tap_3_48> of sequential type is unconnected in block <da_fir_filter>.
+WARNING:Xst:2677 - Node <tap_3_49> of sequential type is unconnected in block <da_fir_filter>.
+WARNING:Xst:2677 - Node <mult_x_stage1_0> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_1> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_2> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_3> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_4> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_5> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_6> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_7> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_8> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_9> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_10> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_11> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_12> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_29> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_30> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_31> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_0> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_1> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_2> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_3> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_4> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_5> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_6> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_7> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_8> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_9> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_10> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_11> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_12> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_29> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_30> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_31> of sequential type is unconnected in block <System_Top_Integrated>.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 1
+ 16x16-bit single-port distributed Read Only RAM       : 1
+# Multipliers                                          : 2
+ 16x16-bit multiplier                                  : 2
+# Adders/Subtractors                                   : 83
+ 16-bit adder                                          : 42
+ 16-bit subtractor                                     : 41
+# Adder Trees                                          : 1
+ 16-bit / 5-inputs adder tree                          : 1
+# Accumulators                                         : 2
+ 16-bit up accumulator                                 : 2
+# Registers                                            : 1254
+ Flip-Flops                                            : 1254
+# Comparators                                          : 21
+ 1-bit comparator equal                                : 2
+ 16-bit comparator greater                             : 4
+ 32-bit comparator greater                             : 2
+ 32-bit comparator lessequal                           : 13
+# Multiplexers                                         : 694
+ 1-bit 2-to-1 multiplexer                              : 690
+ 16-bit 2-to-1 multiplexer                             : 2
+ 2-bit 2-to-1 multiplexer                              : 2
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1710 - FF/Latch <n0954_dummy_dummy_dummy_dummy_dummy_dummy_dummy_dummy_192> (without init value) has a constant value of 0 in block <CORDIC_HDL_Core_fixpt>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <n0954_dummy_dummy_dummy_dummy_dummy_dummy_dummy_dummy_196> (without init value) has a constant value of 0 in block <CORDIC_HDL_Core_fixpt>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <n0954_dummy_dummy_dummy_dummy_dummy_dummy_dummy_dummy_199> (without init value) has a constant value of 0 in block <CORDIC_HDL_Core_fixpt>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <n0954_dummy_dummy_dummy_dummy_dummy_dummy_dummy_dummy_202> (without init value) has a constant value of 0 in block <CORDIC_HDL_Core_fixpt>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <n0954_dummy_dummy_dummy_dummy_dummy_dummy_dummy_dummy_203> (without init value) has a constant value of 0 in block <CORDIC_HDL_Core_fixpt>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <n0954_dummy_dummy_dummy_dummy_dummy_dummy_dummy_dummy_193> in Unit <CORDIC_HDL_Core_fixpt> is equivalent to the following 7 FFs/Latches, which will be removed : <n0954_dummy_dummy_dummy_dummy_dummy_dummy_dummy_dummy_194> <n0954_dummy_dummy_dummy_dummy_dummy_dummy_dummy_dummy_195> <n0954_dummy_dummy_dummy_dummy_dummy_dummy_dummy_dummy_197> <n0954_dummy_dummy_dummy_dummy_dummy_dummy_dummy_dummy_198> <n0954_dummy_dummy_dummy_dummy_dummy_dummy_dummy_dummy_200> <n0954_dummy_dummy_dummy_dummy_dummy_dummy_dummy_dummy_201> <n0954_dummy_dummy_dummy_dummy_dummy_dummy_dummy_dummy_204> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_6> in Unit <adaptive_kalman_filter_1d> is equivalent to the following FF/Latch, which will be removed : <x_est_6> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_7> in Unit <adaptive_kalman_filter_1d> is equivalent to the following FF/Latch, which will be removed : <x_est_7> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_8> in Unit <adaptive_kalman_filter_1d> is equivalent to the following FF/Latch, which will be removed : <x_est_8> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_9> in Unit <adaptive_kalman_filter_1d> is equivalent to the following FF/Latch, which will be removed : <x_est_9> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_10> in Unit <adaptive_kalman_filter_1d> is equivalent to the following FF/Latch, which will be removed : <x_est_10> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_11> in Unit <adaptive_kalman_filter_1d> is equivalent to the following FF/Latch, which will be removed : <x_est_11> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_12> in Unit <adaptive_kalman_filter_1d> is equivalent to the following FF/Latch, which will be removed : <x_est_12> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_13> in Unit <adaptive_kalman_filter_1d> is equivalent to the following FF/Latch, which will be removed : <x_est_13> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_14> in Unit <adaptive_kalman_filter_1d> is equivalent to the following FF/Latch, which will be removed : <x_est_14> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_15> in Unit <adaptive_kalman_filter_1d> is equivalent to the following FF/Latch, which will be removed : <x_est_15> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_0> in Unit <adaptive_kalman_filter_1d> is equivalent to the following FF/Latch, which will be removed : <x_est_0> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_1> in Unit <adaptive_kalman_filter_1d> is equivalent to the following FF/Latch, which will be removed : <x_est_1> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_2> in Unit <adaptive_kalman_filter_1d> is equivalent to the following FF/Latch, which will be removed : <x_est_2> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_3> in Unit <adaptive_kalman_filter_1d> is equivalent to the following FF/Latch, which will be removed : <x_est_3> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_4> in Unit <adaptive_kalman_filter_1d> is equivalent to the following FF/Latch, which will be removed : <x_est_4> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_5> in Unit <adaptive_kalman_filter_1d> is equivalent to the following FF/Latch, which will be removed : <x_est_5> 
+WARNING:Xst:1710 - FF/Latch <n0955_192> (without init value) has a constant value of 0 in block <CORDIC_HDL_Core_fixpt>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <z_pipe_6_1> of sequential type is unconnected in block <CORDIC_HDL_Core_fixpt>.
+WARNING:Xst:2677 - Node <z_pipe_6_0> of sequential type is unconnected in block <CORDIC_HDL_Core_fixpt>.
+WARNING:Xst:2677 - Node <z_pipe_7_1> of sequential type is unconnected in block <CORDIC_HDL_Core_fixpt>.
+WARNING:Xst:2677 - Node <z_pipe_7_0> of sequential type is unconnected in block <CORDIC_HDL_Core_fixpt>.
+WARNING:Xst:2677 - Node <z_pipe_8_0> of sequential type is unconnected in block <CORDIC_HDL_Core_fixpt>.
+WARNING:Xst:2677 - Node <z_pipe_8_1> of sequential type is unconnected in block <CORDIC_HDL_Core_fixpt>.
+WARNING:Xst:2677 - Node <z_pipe_9_1> of sequential type is unconnected in block <CORDIC_HDL_Core_fixpt>.
+WARNING:Xst:2677 - Node <z_pipe_9_0> of sequential type is unconnected in block <CORDIC_HDL_Core_fixpt>.
+WARNING:Xst:2677 - Node <z_pipe_10_1> of sequential type is unconnected in block <CORDIC_HDL_Core_fixpt>.
+WARNING:Xst:2677 - Node <z_pipe_10_0> of sequential type is unconnected in block <CORDIC_HDL_Core_fixpt>.
+WARNING:Xst:2677 - Node <z_pipe_11_1> of sequential type is unconnected in block <CORDIC_HDL_Core_fixpt>.
+WARNING:Xst:2677 - Node <z_pipe_11_0> of sequential type is unconnected in block <CORDIC_HDL_Core_fixpt>.
+WARNING:Xst:2677 - Node <z_pipe_12_14> of sequential type is unconnected in block <CORDIC_HDL_Core_fixpt>.
+WARNING:Xst:2677 - Node <z_pipe_12_13> of sequential type is unconnected in block <CORDIC_HDL_Core_fixpt>.
+WARNING:Xst:2677 - Node <z_pipe_12_12> of sequential type is unconnected in block <CORDIC_HDL_Core_fixpt>.
+WARNING:Xst:2677 - Node <z_pipe_12_11> of sequential type is unconnected in block <CORDIC_HDL_Core_fixpt>.
+WARNING:Xst:2677 - Node <z_pipe_12_8> of sequential type is unconnected in block <CORDIC_HDL_Core_fixpt>.
+WARNING:Xst:2677 - Node <z_pipe_12_10> of sequential type is unconnected in block <CORDIC_HDL_Core_fixpt>.
+WARNING:Xst:2677 - Node <z_pipe_12_9> of sequential type is unconnected in block <CORDIC_HDL_Core_fixpt>.
+WARNING:Xst:2677 - Node <z_pipe_12_7> of sequential type is unconnected in block <CORDIC_HDL_Core_fixpt>.
+WARNING:Xst:2677 - Node <z_pipe_12_6> of sequential type is unconnected in block <CORDIC_HDL_Core_fixpt>.
+WARNING:Xst:2677 - Node <z_pipe_12_5> of sequential type is unconnected in block <CORDIC_HDL_Core_fixpt>.
+WARNING:Xst:2677 - Node <z_pipe_12_4> of sequential type is unconnected in block <CORDIC_HDL_Core_fixpt>.
+WARNING:Xst:2677 - Node <z_pipe_12_1> of sequential type is unconnected in block <CORDIC_HDL_Core_fixpt>.
+WARNING:Xst:2677 - Node <z_pipe_12_3> of sequential type is unconnected in block <CORDIC_HDL_Core_fixpt>.
+WARNING:Xst:2677 - Node <z_pipe_12_2> of sequential type is unconnected in block <CORDIC_HDL_Core_fixpt>.
+WARNING:Xst:2677 - Node <z_pipe_12_0> of sequential type is unconnected in block <CORDIC_HDL_Core_fixpt>.
+INFO:Xst:2261 - The FF/Latch <n0955_194> in Unit <CORDIC_HDL_Core_fixpt> is equivalent to the following FF/Latch, which will be removed : <n0955_195> 
+INFO:Xst:2261 - The FF/Latch <n0955_205> in Unit <CORDIC_HDL_Core_fixpt> is equivalent to the following 2 FFs/Latches, which will be removed : <n0955_206> <n0955_207> 
+INFO:Xst:2261 - The FF/Latch <n0955_202> in Unit <CORDIC_HDL_Core_fixpt> is equivalent to the following FF/Latch, which will be removed : <n0955_203> 
+
+Optimizing unit <System_Top_Integrated> ...
+
+Optimizing unit <da_fir_filter> ...
+
+Optimizing unit <cdc_handshake> ...
+
+Optimizing unit <CORDIC_HDL_Core_fixpt> ...
+INFO:Xst:2261 - The FF/Latch <n0954_dummy_dummy_dummy_dummy_dummy_dummy_dummy_dummy_193> in Unit <CORDIC_HDL_Core_fixpt> is equivalent to the following FF/Latch, which will be removed : <n0955_193> 
+INFO:Xst:2261 - The FF/Latch <n0955_194> in Unit <CORDIC_HDL_Core_fixpt> is equivalent to the following 5 FFs/Latches, which will be removed : <n0955_197> <n0955_198> <n0955_200> <n0955_201> <n0955_204> 
+INFO:Xst:2261 - The FF/Latch <n0955_196> in Unit <CORDIC_HDL_Core_fixpt> is equivalent to the following 3 FFs/Latches, which will be removed : <n0955_199> <n0955_202> <n0955_205> 
+
+Optimizing unit <adaptive_kalman_filter_1d> ...
+WARNING:Xst:2677 - Node <u_kalman_y/v_est_out_15> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_y/v_est_out_14> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_y/v_est_out_13> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_y/v_est_out_12> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_y/v_est_out_11> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_y/v_est_out_10> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_y/v_est_out_9> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_y/v_est_out_8> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_y/v_est_out_7> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_y/v_est_out_6> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_y/v_est_out_5> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_y/v_est_out_4> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_y/v_est_out_3> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_y/v_est_out_2> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_y/v_est_out_1> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_y/v_est_out_0> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_y/filter_mode_out_1> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_y/filter_mode_out_0> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_x/v_est_out_15> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_x/v_est_out_14> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_x/v_est_out_13> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_x/v_est_out_12> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_x/v_est_out_11> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_x/v_est_out_10> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_x/v_est_out_9> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_x/v_est_out_8> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_x/v_est_out_7> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_x/v_est_out_6> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_x/v_est_out_5> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_x/v_est_out_4> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_x/v_est_out_3> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_x/v_est_out_2> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_x/v_est_out_1> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_x/v_est_out_0> of sequential type is unconnected in block <System_Top_Integrated>.
+INFO:Xst:2261 - The FF/Latch <u_lidar_cdc/ack_toggle> in Unit <System_Top_Integrated> is equivalent to the following FF/Latch, which will be removed : <u_lidar_cdc/req_sync2_d> 
+INFO:Xst:2261 - The FF/Latch <u_kalman_x/valid_out> in Unit <System_Top_Integrated> is equivalent to the following FF/Latch, which will be removed : <u_kalman_y/valid_out> 
+INFO:Xst:2261 - The FF/Latch <u_cordic/n0955_175> in Unit <System_Top_Integrated> is equivalent to the following FF/Latch, which will be removed : <u_cordic/n0955_174> 
+INFO:Xst:2261 - The FF/Latch <u_cordic/n0955_176> in Unit <System_Top_Integrated> is equivalent to the following FF/Latch, which will be removed : <u_cordic/n0954_dummy_dummy_dummy_dummy_dummy_dummy_dummy_dummy_176> 
+INFO:Xst:2261 - The FF/Latch <u_cordic/n0955_183> in Unit <System_Top_Integrated> is equivalent to the following FF/Latch, which will be removed : <u_cordic/n0955_180> 
+INFO:Xst:2261 - The FF/Latch <u_cordic/n0955_184> in Unit <System_Top_Integrated> is equivalent to the following FF/Latch, which will be removed : <u_cordic/n0955_181> 
+INFO:Xst:2261 - The FF/Latch <u_cordic/n0955_185> in Unit <System_Top_Integrated> is equivalent to the following FF/Latch, which will be removed : <u_cordic/n0955_182> 
+INFO:Xst:2261 - The FF/Latch <u_cordic/n0955_191> in Unit <System_Top_Integrated> is equivalent to the following FF/Latch, which will be removed : <u_cordic/n0955_190> 
+INFO:Xst:2261 - The FF/Latch <u_cordic/n0954_dummy_dummy_dummy_dummy_dummy_dummy_dummy_dummy_174> in Unit <System_Top_Integrated> is equivalent to the following FF/Latch, which will be removed : <u_cordic/n0954_dummy_dummy_dummy_dummy_dummy_dummy_dummy_dummy_175> 
+INFO:Xst:2261 - The FF/Latch <u_cordic/n0954_dummy_dummy_dummy_dummy_dummy_dummy_dummy_dummy_180> in Unit <System_Top_Integrated> is equivalent to the following FF/Latch, which will be removed : <u_cordic/n0954_dummy_dummy_dummy_dummy_dummy_dummy_dummy_dummy_183> 
+INFO:Xst:2261 - The FF/Latch <u_cordic/n0954_dummy_dummy_dummy_dummy_dummy_dummy_dummy_dummy_181> in Unit <System_Top_Integrated> is equivalent to the following FF/Latch, which will be removed : <u_cordic/n0954_dummy_dummy_dummy_dummy_dummy_dummy_dummy_dummy_184> 
+INFO:Xst:2261 - The FF/Latch <u_cordic/n0954_dummy_dummy_dummy_dummy_dummy_dummy_dummy_dummy_182> in Unit <System_Top_Integrated> is equivalent to the following FF/Latch, which will be removed : <u_cordic/n0954_dummy_dummy_dummy_dummy_dummy_dummy_dummy_dummy_185> 
+INFO:Xst:2261 - The FF/Latch <u_cordic/n0954_dummy_dummy_dummy_dummy_dummy_dummy_dummy_dummy_189> in Unit <System_Top_Integrated> is equivalent to the following FF/Latch, which will be removed : <u_cordic/n0954_dummy_dummy_dummy_dummy_dummy_dummy_dummy_dummy_191> 
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block System_Top_Integrated, actual ratio is 22.
+
+Final Macro Processing ...
+
+Processing Unit <System_Top_Integrated> :
+	Found 14-bit shift register for signal <r_pipe_13_0>.
+	Found 14-bit shift register for signal <r_pipe_13_1>.
+	Found 14-bit shift register for signal <r_pipe_13_2>.
+	Found 14-bit shift register for signal <r_pipe_13_3>.
+	Found 14-bit shift register for signal <r_pipe_13_4>.
+	Found 14-bit shift register for signal <r_pipe_13_5>.
+	Found 14-bit shift register for signal <r_pipe_13_6>.
+	Found 14-bit shift register for signal <r_pipe_13_7>.
+	Found 14-bit shift register for signal <r_pipe_13_8>.
+	Found 14-bit shift register for signal <r_pipe_13_9>.
+	Found 14-bit shift register for signal <r_pipe_13_10>.
+	Found 14-bit shift register for signal <r_pipe_13_11>.
+	Found 14-bit shift register for signal <r_pipe_13_12>.
+	Found 14-bit shift register for signal <r_pipe_13_13>.
+	Found 14-bit shift register for signal <r_pipe_13_14>.
+	Found 14-bit shift register for signal <r_pipe_13_15>.
+	Found 17-bit shift register for signal <mult_vld>.
+	Found 5-bit shift register for signal <u_cordic/z_pipe_11_2>.
+	Found 4-bit shift register for signal <u_cordic/z_pipe_10_3>.
+Unit <System_Top_Integrated> processed.
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 904
+ Flip-Flops                                            : 904
+# Shift Registers                                      : 19
+ 14-bit shift register                                 : 16
+ 17-bit shift register                                 : 1
+ 4-bit shift register                                  : 1
+ 5-bit shift register                                  : 1
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : System_Top_Integrated.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 6073
+#      GND                         : 1
+#      INV                         : 210
+#      LUT1                        : 169
+#      LUT2                        : 1312
+#      LUT3                        : 596
+#      LUT4                        : 229
+#      LUT5                        : 20
+#      LUT6                        : 77
+#      MUXCY                       : 1718
+#      MUXF7                       : 1
+#      VCC                         : 1
+#      XORCY                       : 1739
+# FlipFlops/Latches                : 958
+#      FDC                         : 701
+#      FDCE                        : 237
+#      FDE                         : 19
+#      FDPE                        : 1
+# Shift Registers                  : 19
+#      SRLC16E                     : 19
+# Clock Buffers                    : 2
+#      BUFGP                       : 2
+# IO Buffers                       : 102
+#      IBUF                        : 49
+#      OBUF                        : 53
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx25fgg484-3 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:             958  out of  30064     3%  
+ Number of Slice LUTs:                 2632  out of  15032    17%  
+    Number used as Logic:              2613  out of  15032    17%  
+    Number used as Memory:               19  out of   3664     0%  
+       Number used as SRL:               19
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:   2891
+   Number with an unused Flip Flop:    1933  out of   2891    66%  
+   Number with an unused LUT:           259  out of   2891     8%  
+   Number of fully used LUT-FF pairs:   699  out of   2891    24%  
+   Number of unique control sets:         8
+
+IO Utilization: 
+ Number of IOs:                         106
+ Number of bonded IOBs:                 104  out of    266    39%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                2  out of     16    12%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+sys_clk                            | BUFGP                  | 942   |
+lidar_clk                          | BUFGP                  | 35    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -3
+
+   Minimum period: 8.666ns (Maximum Frequency: 115.399MHz)
+   Minimum input arrival time before clock: 3.862ns
+   Maximum output required time after clock: 4.521ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'sys_clk'
+  Clock period: 8.666ns (frequency: 115.399MHz)
+  Total number of paths / destination ports: 119286713 / 991
+-------------------------------------------------------------------------
+Delay:               8.666ns (Levels of Logic = 29)
+  Source:            u_kalman_x/x_est_out_0 (FF)
+  Destination:       u_kalman_x/v_est_15 (FF)
+  Source Clock:      sys_clk rising
+  Destination Clock: sys_clk rising
+
+  Data Path: u_kalman_x/x_est_out_0 to u_kalman_x/v_est_15
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             2   0.447   0.721  u_kalman_x/x_est_out_0 (u_kalman_x/x_est_out_0)
+     LUT2:I0->O            1   0.203   0.000  u_kalman_x/Madd_x_pred_lut<0> (u_kalman_x/Madd_x_pred_lut<0>)
+     MUXCY:S->O            1   0.172   0.000  u_kalman_x/Madd_x_pred_cy<0> (u_kalman_x/Madd_x_pred_cy<0>)
+     XORCY:CI->O           2   0.180   0.617  u_kalman_x/Madd_x_pred_xor<1> (u_kalman_x/x_pred<1>)
+     LUT2:I1->O            1   0.205   0.000  u_kalman_x/Msub_innovation_lut<1> (u_kalman_x/Msub_innovation_lut<1>)
+     MUXCY:S->O            1   0.172   0.000  u_kalman_x/Msub_innovation_cy<1> (u_kalman_x/Msub_innovation_cy<1>)
+     XORCY:CI->O           5   0.180   0.714  u_kalman_x/Msub_innovation_xor<2> (u_kalman_x/innovation<2>)
+     INV:I->O              1   0.206   0.000  u_kalman_x/Msub_innovation[15]_unary_minus_4_OUT_lut<2>_INV_0 (u_kalman_x/Msub_innovation[15]_unary_minus_4_OUT_lut<2>)
+     MUXCY:S->O            1   0.172   0.000  u_kalman_x/Msub_innovation[15]_unary_minus_4_OUT_cy<2> (u_kalman_x/Msub_innovation[15]_unary_minus_4_OUT_cy<2>)
+     XORCY:CI->O           1   0.180   0.684  u_kalman_x/Msub_innovation[15]_unary_minus_4_OUT_xor<3> (u_kalman_x/innovation[15]_unary_minus_4_OUT<3>)
+     LUT5:I3->O            1   0.203   0.580  u_kalman_x/abs_innovation[15]_GND_21_o_LessThan_7_o21_SW0 (N43)
+     LUT6:I5->O            4   0.205   0.684  u_kalman_x/abs_innovation[15]_GND_21_o_LessThan_7_o21 (u_kalman_x/abs_innovation[15]_GND_21_o_LessThan_7_o21)
+     LUT6:I5->O           12   0.205   1.013  u_kalman_x/abs_innovation[15]_GND_21_o_LessThan_7_o26_1 (u_kalman_x/abs_innovation[15]_GND_21_o_LessThan_7_o26)
+     LUT6:I4->O            1   0.203   0.000  u_kalman_x/Maccum_v_est_lut<0> (u_kalman_x/Maccum_v_est_lut<0>)
+     MUXCY:S->O            1   0.172   0.000  u_kalman_x/Maccum_v_est_cy<0> (u_kalman_x/Maccum_v_est_cy<0>)
+     MUXCY:CI->O           1   0.019   0.000  u_kalman_x/Maccum_v_est_cy<1> (u_kalman_x/Maccum_v_est_cy<1>)
+     MUXCY:CI->O           1   0.019   0.000  u_kalman_x/Maccum_v_est_cy<2> (u_kalman_x/Maccum_v_est_cy<2>)
+     MUXCY:CI->O           1   0.019   0.000  u_kalman_x/Maccum_v_est_cy<3> (u_kalman_x/Maccum_v_est_cy<3>)
+     MUXCY:CI->O           1   0.019   0.000  u_kalman_x/Maccum_v_est_cy<4> (u_kalman_x/Maccum_v_est_cy<4>)
+     MUXCY:CI->O           1   0.019   0.000  u_kalman_x/Maccum_v_est_cy<5> (u_kalman_x/Maccum_v_est_cy<5>)
+     MUXCY:CI->O           1   0.019   0.000  u_kalman_x/Maccum_v_est_cy<6> (u_kalman_x/Maccum_v_est_cy<6>)
+     MUXCY:CI->O           1   0.019   0.000  u_kalman_x/Maccum_v_est_cy<7> (u_kalman_x/Maccum_v_est_cy<7>)
+     MUXCY:CI->O           1   0.019   0.000  u_kalman_x/Maccum_v_est_cy<8> (u_kalman_x/Maccum_v_est_cy<8>)
+     MUXCY:CI->O           1   0.019   0.000  u_kalman_x/Maccum_v_est_cy<9> (u_kalman_x/Maccum_v_est_cy<9>)
+     MUXCY:CI->O           1   0.019   0.000  u_kalman_x/Maccum_v_est_cy<10> (u_kalman_x/Maccum_v_est_cy<10>)
+     MUXCY:CI->O           1   0.019   0.000  u_kalman_x/Maccum_v_est_cy<11> (u_kalman_x/Maccum_v_est_cy<11>)
+     MUXCY:CI->O           1   0.019   0.000  u_kalman_x/Maccum_v_est_cy<12> (u_kalman_x/Maccum_v_est_cy<12>)
+     MUXCY:CI->O           1   0.019   0.000  u_kalman_x/Maccum_v_est_cy<13> (u_kalman_x/Maccum_v_est_cy<13>)
+     MUXCY:CI->O           0   0.019   0.000  u_kalman_x/Maccum_v_est_cy<14> (u_kalman_x/Maccum_v_est_cy<14>)
+     XORCY:CI->O           1   0.180   0.000  u_kalman_x/Maccum_v_est_xor<15> (u_kalman_x/Result<15>)
+     FDCE:D                    0.102          u_kalman_x/v_est_15
+    ----------------------------------------
+    Total                      8.666ns (3.653ns logic, 5.013ns route)
+                                       (42.2% logic, 57.8% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'lidar_clk'
+  Clock period: 2.999ns (frequency: 333.484MHz)
+  Total number of paths / destination ports: 68 / 35
+-------------------------------------------------------------------------
+Delay:               2.999ns (Levels of Logic = 1)
+  Source:            u_lidar_cdc/ack_sync2 (FF)
+  Destination:       u_lidar_cdc/req_toggle (FF)
+  Source Clock:      lidar_clk rising
+  Destination Clock: lidar_clk rising
+
+  Data Path: u_lidar_cdc/ack_sync2 to u_lidar_cdc/req_toggle
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              2   0.447   0.721  u_lidar_cdc/ack_sync2 (u_lidar_cdc/ack_sync2)
+     LUT3:I1->O           33   0.203   1.305  u_lidar_cdc/sensor_data_valid_sensor_ready_AND_1_o11 (u_lidar_cdc/sensor_data_valid_sensor_ready_AND_1_o)
+     FDCE:CE                   0.322          u_lidar_cdc/data_buffer_0
+    ----------------------------------------
+    Total                      2.999ns (0.972ns logic, 2.027ns route)
+                                       (32.4% logic, 67.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'sys_clk'
+  Total number of paths / destination ports: 990 / 990
+-------------------------------------------------------------------------
+Offset:              3.844ns (Levels of Logic = 1)
+  Source:            sys_reset (PAD)
+  Destination:       lidar_data_valid (FF)
+  Destination Clock: sys_clk rising
+
+  Data Path: sys_reset to lidar_data_valid
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O           939   1.222   2.192  sys_reset_IBUF (sys_reset_IBUF)
+     FDC:CLR                   0.430          lidar_data_valid
+    ----------------------------------------
+    Total                      3.844ns (1.652ns logic, 2.192ns route)
+                                       (43.0% logic, 57.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'lidar_clk'
+  Total number of paths / destination ports: 100 / 100
+-------------------------------------------------------------------------
+Offset:              3.862ns (Levels of Logic = 2)
+  Source:            lidar_valid_in (PAD)
+  Destination:       u_lidar_cdc/req_toggle (FF)
+  Destination Clock: lidar_clk rising
+
+  Data Path: lidar_valid_in to u_lidar_cdc/req_toggle
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             1   1.222   0.808  lidar_valid_in_IBUF (lidar_valid_in_IBUF)
+     LUT3:I0->O           33   0.205   1.305  u_lidar_cdc/sensor_data_valid_sensor_ready_AND_1_o11 (u_lidar_cdc/sensor_data_valid_sensor_ready_AND_1_o)
+     FDCE:CE                   0.322          u_lidar_cdc/data_buffer_0
+    ----------------------------------------
+    Total                      3.862ns (1.749ns logic, 2.113ns route)
+                                       (45.3% logic, 54.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'sys_clk'
+  Total number of paths / destination ports: 52 / 52
+-------------------------------------------------------------------------
+Offset:              3.597ns (Levels of Logic = 1)
+  Source:            clean_lidar_x_15 (FF)
+  Destination:       clean_lidar_x<15> (PAD)
+  Source Clock:      sys_clk rising
+
+  Data Path: clean_lidar_x_15 to clean_lidar_x<15>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              1   0.447   0.579  clean_lidar_x_15 (clean_lidar_x_15)
+     OBUF:I->O                 2.571          clean_lidar_x_15_OBUF (clean_lidar_x<15>)
+    ----------------------------------------
+    Total                      3.597ns (3.018ns logic, 0.579ns route)
+                                       (83.9% logic, 16.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'lidar_clk'
+  Total number of paths / destination ports: 2 / 1
+-------------------------------------------------------------------------
+Offset:              4.521ns (Levels of Logic = 2)
+  Source:            u_lidar_cdc/ack_sync2 (FF)
+  Destination:       lidar_ready_out (PAD)
+  Source Clock:      lidar_clk rising
+
+  Data Path: u_lidar_cdc/ack_sync2 to lidar_ready_out
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              2   0.447   0.721  u_lidar_cdc/ack_sync2 (u_lidar_cdc/ack_sync2)
+     LUT2:I0->O            1   0.203   0.579  u_lidar_cdc/sensor_ready11 (lidar_ready_out_OBUF)
+     OBUF:I->O                 2.571          lidar_ready_out_OBUF (lidar_ready_out)
+    ----------------------------------------
+    Total                      4.521ns (3.221ns logic, 1.300ns route)
+                                       (71.2% logic, 28.8% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock lidar_clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+lidar_clk      |    2.999|         |         |         |
+sys_clk        |    1.165|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock sys_clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+lidar_clk      |    1.232|         |         |         |
+sys_clk        |    8.666|         |         |         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 8.00 secs
+Total CPU time to Xst completion: 8.32 secs
+ 
+--> 
+
+Total memory usage is 4554952 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :  158 (   0 filtered)
+Number of infos    :   74 (   0 filtered)
+

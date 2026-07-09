@@ -1,0 +1,1118 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.10 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.10 secs
+ 
+--> Reading design: System_Top_Integrated.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "System_Top_Integrated.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "System_Top_Integrated"
+Output Format                      : NGC
+Target Device                      : xc6slx25-3-fgg484
+
+---- Source Options
+Top Module Name                    : System_Top_Integrated
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "D:\Code Prj\FPGA-Based Hardware Accelerator\Github\rtl_src\da_fir_filter.v" into library work
+Parsing module <da_fir_filter>.
+Analyzing Verilog file "D:\Code Prj\FPGA-Based Hardware Accelerator\Github\rtl_src\CORDIC_HDL_Core_fixpt.v" into library work
+Parsing module <CORDIC_HDL_Core_fixpt>.
+Analyzing Verilog file "D:\Code Prj\FPGA-Based Hardware Accelerator\Github\rtl_src\cdc_handshake.v" into library work
+Parsing module <cdc_handshake>.
+Analyzing Verilog file "D:\Code Prj\FPGA-Based Hardware Accelerator\Github\rtl_src\adaptive_kalman_filter_1d.v" into library work
+Parsing module <adaptive_kalman_filter_1d>.
+Analyzing Verilog file "D:\Code Prj\FPGA-Based Hardware Accelerator\Github\rtl_src\System_Top_Integrated.v" into library work
+Parsing module <System_Top_Integrated>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating module <System_Top_Integrated>.
+
+Elaborating module <cdc_handshake(DATA_WIDTH=32)>.
+
+Elaborating module <CORDIC_HDL_Core_fixpt>.
+
+Elaborating module <adaptive_kalman_filter_1d>.
+
+Elaborating module <da_fir_filter>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <System_Top_Integrated>.
+    Related source file is "D:\Code Prj\FPGA-Based Hardware Accelerator\Github\rtl_src\System_Top_Integrated.v".
+    Set property "use_dsp48 = no" for signal <mult_x_lut>.
+    Set property "mult_style = lut" for signal <mult_x_lut>.
+    Set property "use_dsp48 = no" for signal <mult_y_lut>.
+    Set property "mult_style = lut" for signal <mult_y_lut>.
+INFO:Xst:3210 - "D:\Code Prj\FPGA-Based Hardware Accelerator\Github\rtl_src\System_Top_Integrated.v" line 124: Output port <v_est_out> of the instance <u_kalman_x> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\Code Prj\FPGA-Based Hardware Accelerator\Github\rtl_src\System_Top_Integrated.v" line 135: Output port <v_est_out> of the instance <u_kalman_y> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\Code Prj\FPGA-Based Hardware Accelerator\Github\rtl_src\System_Top_Integrated.v" line 135: Output port <filter_mode_out> of the instance <u_kalman_y> is unconnected or connected to loadless signal.
+    Found 224-bit register for signal <n0033>.
+    Found 14-bit register for signal <valid_pipe>.
+    Found 32-bit register for signal <mult_x_stage1>.
+    Found 32-bit register for signal <mult_y_stage1>.
+    Found 16-bit register for signal <mult_x<15:0>>.
+    Found 16-bit register for signal <mult_y<15:0>>.
+    Found 16-bit register for signal <clean_lidar_x>.
+    Found 16-bit register for signal <clean_lidar_y>.
+    Found 16-bit register for signal <clean_imu_accel>.
+    Found 1-bit register for signal <mult_vld_stage1>.
+    Found 1-bit register for signal <mult_vld>.
+    Found 1-bit register for signal <lidar_data_valid>.
+    Found 1-bit register for signal <imu_data_valid>.
+    Found 16x16-bit multiplier for signal <mult_x_lut> created at line 88.
+    Found 16x16-bit multiplier for signal <mult_y_lut> created at line 89.
+    Summary:
+	inferred   2 Multiplier(s).
+	inferred 386 D-type flip-flop(s).
+Unit <System_Top_Integrated> synthesized.
+
+Synthesizing Unit <cdc_handshake>.
+    Related source file is "D:\Code Prj\FPGA-Based Hardware Accelerator\Github\rtl_src\cdc_handshake.v".
+        DATA_WIDTH = 32
+    Found 32-bit register for signal <data_buffer>.
+    Found 32-bit register for signal <sys_data_out>.
+    Found 1-bit register for signal <ack_sync1>.
+    Found 1-bit register for signal <ack_sync2>.
+    Found 1-bit register for signal <req_toggle>.
+    Found 1-bit register for signal <req_sync1>.
+    Found 1-bit register for signal <req_sync2>.
+    Found 1-bit register for signal <req_sync2_d>.
+    Found 1-bit register for signal <ack_toggle>.
+    Found 1-bit register for signal <sys_data_valid>.
+    Found 1-bit comparator equal for signal <sensor_ready> created at line 41
+    Found 1-bit comparator equal for signal <n0009> created at line 104
+    Summary:
+	inferred  72 D-type flip-flop(s).
+	inferred   2 Comparator(s).
+Unit <cdc_handshake> synthesized.
+
+Synthesizing Unit <CORDIC_HDL_Core_fixpt>.
+    Related source file is "D:\Code Prj\FPGA-Based Hardware Accelerator\Github\rtl_src\CORDIC_HDL_Core_fixpt.v".
+    Found 16-bit register for signal <x_out_1>.
+    Found 16-bit register for signal <y_out_1>.
+    Found 16-bit register for signal <theta_in_1>.
+    Found 16-bit subtractor for signal <tmp_2> created at line 280.
+    Found 16-bit subtractor for signal <tmp_6> created at line 297.
+    Found 16-bit subtractor for signal <tmp_10> created at line 314.
+    Found 16-bit subtractor for signal <tmp_14> created at line 331.
+    Found 16-bit subtractor for signal <tmp_18> created at line 348.
+    Found 16-bit subtractor for signal <tmp_22> created at line 365.
+    Found 16-bit subtractor for signal <tmp_26> created at line 382.
+    Found 16-bit subtractor for signal <tmp_30> created at line 399.
+    Found 16-bit subtractor for signal <tmp_34> created at line 416.
+    Found 16-bit subtractor for signal <tmp_38> created at line 433.
+    Found 16-bit subtractor for signal <tmp_42> created at line 450.
+    Found 16-bit subtractor for signal <tmp_46> created at line 467.
+    Found 16-bit subtractor for signal <tmp_65> created at line 570.
+    Found 16-bit subtractor for signal <tmp_68> created at line 588.
+    Found 16-bit subtractor for signal <tmp_72> created at line 609.
+    Found 16-bit subtractor for signal <tmp_75> created at line 627.
+    Found 16-bit subtractor for signal <tmp_79> created at line 648.
+    Found 16-bit subtractor for signal <tmp_82> created at line 666.
+    Found 16-bit subtractor for signal <tmp_86> created at line 687.
+    Found 16-bit subtractor for signal <tmp_89> created at line 705.
+    Found 16-bit subtractor for signal <tmp_93> created at line 726.
+    Found 16-bit subtractor for signal <tmp_96> created at line 744.
+    Found 16-bit subtractor for signal <tmp_100> created at line 765.
+    Found 16-bit subtractor for signal <tmp_103> created at line 783.
+    Found 16-bit subtractor for signal <tmp_107> created at line 804.
+    Found 16-bit subtractor for signal <tmp_110> created at line 822.
+    Found 16-bit subtractor for signal <tmp_114> created at line 843.
+    Found 16-bit subtractor for signal <tmp_117> created at line 861.
+    Found 16-bit subtractor for signal <tmp_121> created at line 882.
+    Found 16-bit subtractor for signal <tmp_124> created at line 900.
+    Found 16-bit subtractor for signal <tmp_128> created at line 921.
+    Found 16-bit subtractor for signal <tmp_131> created at line 939.
+    Found 16-bit subtractor for signal <tmp_135> created at line 960.
+    Found 16-bit subtractor for signal <tmp_138> created at line 978.
+    Found 16-bit subtractor for signal <tmp_142> created at line 999.
+    Found 16-bit subtractor for signal <tmp_145> created at line 1029.
+    Found 16-bit adder for signal <tmp_1> created at line 263.
+    Found 16-bit adder for signal <tmp_5> created at line 293.
+    Found 16-bit adder for signal <tmp_9> created at line 310.
+    Found 16-bit adder for signal <tmp_13> created at line 327.
+    Found 16-bit adder for signal <tmp_17> created at line 344.
+    Found 16-bit adder for signal <tmp_21> created at line 361.
+    Found 16-bit adder for signal <tmp_25> created at line 378.
+    Found 16-bit adder for signal <tmp_29> created at line 395.
+    Found 16-bit adder for signal <tmp_33> created at line 412.
+    Found 16-bit adder for signal <tmp_37> created at line 429.
+    Found 16-bit adder for signal <tmp_41> created at line 446.
+    Found 16-bit adder for signal <tmp_45> created at line 463.
+    Found 16-bit adder for signal <tmp_64> created at line 566.
+    Found 16-bit adder for signal <tmp_69> created at line 592.
+    Found 16-bit adder for signal <tmp_71> created at line 605.
+    Found 16-bit adder for signal <tmp_76> created at line 631.
+    Found 16-bit adder for signal <tmp_78> created at line 644.
+    Found 16-bit adder for signal <tmp_83> created at line 670.
+    Found 16-bit adder for signal <tmp_85> created at line 683.
+    Found 16-bit adder for signal <tmp_90> created at line 709.
+    Found 16-bit adder for signal <tmp_92> created at line 722.
+    Found 16-bit adder for signal <tmp_97> created at line 748.
+    Found 16-bit adder for signal <tmp_99> created at line 761.
+    Found 16-bit adder for signal <tmp_104> created at line 787.
+    Found 16-bit adder for signal <tmp_106> created at line 800.
+    Found 16-bit adder for signal <tmp_111> created at line 826.
+    Found 16-bit adder for signal <tmp_113> created at line 839.
+    Found 16-bit adder for signal <tmp_118> created at line 865.
+    Found 16-bit adder for signal <tmp_120> created at line 878.
+    Found 16-bit adder for signal <tmp_125> created at line 904.
+    Found 16-bit adder for signal <tmp_127> created at line 917.
+    Found 16-bit adder for signal <tmp_132> created at line 943.
+    Found 16-bit adder for signal <tmp_134> created at line 956.
+    Found 16-bit adder for signal <tmp_139> created at line 982.
+    Found 16-bit adder for signal <tmp_141> created at line 995.
+    Found 16-bit adder for signal <tmp_146> created at line 1033.
+    Found 16-bit comparator greater for signal <tmp_48_GND_3_o_equal_211_o> created at line 476
+    Found 16-bit comparator greater for signal <tmp_49_GND_3_o_equal_200_o> created at line 480
+    Found 16-bit comparator greater for signal <tmp_50_GND_3_o_equal_189_o> created at line 484
+    Found 16-bit comparator greater for signal <tmp_51_GND_3_o_equal_178_o> created at line 488
+    Found 16-bit comparator greater for signal <tmp_52_GND_3_o_equal_167_o> created at line 492
+    Found 16-bit comparator greater for signal <tmp_53_GND_3_o_equal_156_o> created at line 496
+    Found 16-bit comparator greater for signal <tmp_54_GND_3_o_equal_145_o> created at line 500
+    Found 16-bit comparator greater for signal <tmp_55_GND_3_o_equal_134_o> created at line 504
+    Found 16-bit comparator greater for signal <tmp_56_GND_3_o_equal_123_o> created at line 508
+    Found 16-bit comparator greater for signal <tmp_57_GND_3_o_equal_112_o> created at line 512
+    Found 16-bit comparator greater for signal <tmp_58_GND_3_o_equal_101_o> created at line 516
+    Found 16-bit comparator greater for signal <tmp_59_GND_3_o_equal_90_o> created at line 520
+    Found 16-bit comparator greater for signal <tmp_60_GND_3_o_equal_80_o> created at line 524
+    Summary:
+	inferred  36 Adder/Subtractor(s).
+	inferred  48 D-type flip-flop(s).
+	inferred  13 Comparator(s).
+Unit <CORDIC_HDL_Core_fixpt> synthesized.
+
+Synthesizing Unit <adaptive_kalman_filter_1d>.
+    Related source file is "D:\Code Prj\FPGA-Based Hardware Accelerator\Github\rtl_src\adaptive_kalman_filter_1d.v".
+    Found 16-bit register for signal <v_est>.
+    Found 16-bit register for signal <x_est_out>.
+    Found 16-bit register for signal <v_est_out>.
+    Found 16-bit register for signal <x_est>.
+    Found 2-bit register for signal <filter_mode_out>.
+    Found 1-bit register for signal <valid_out>.
+    Found 16-bit subtractor for signal <innovation> created at line 35.
+    Found 16-bit subtractor for signal <innovation[15]_unary_minus_4_OUT> created at line 37.
+    Found 16-bit adder for signal <x_pred> created at line 34.
+    Found 16-bit adder for signal <x_pred[15]_alpha_update[15]_add_11_OUT> created at line 72.
+    Found 16-bit adder for signal <v_est[15]_beta_update[15]_add_12_OUT> created at line 73.
+    Found 32-bit comparator greater for signal <GND_5_o_innovation[15]_LessThan_3_o> created at line 37
+    Found 16-bit comparator greater for signal <abs_innovation[15]_GND_5_o_LessThan_6_o> created at line 41
+    Found 16-bit comparator greater for signal <abs_innovation[15]_GND_5_o_LessThan_7_o> created at line 46
+    Summary:
+	inferred   5 Adder/Subtractor(s).
+	inferred  67 D-type flip-flop(s).
+	inferred   3 Comparator(s).
+	inferred  51 Multiplexer(s).
+Unit <adaptive_kalman_filter_1d> synthesized.
+
+Synthesizing Unit <da_fir_filter>.
+    Related source file is "D:\Code Prj\FPGA-Based Hardware Accelerator\Github\rtl_src\da_fir_filter.v".
+WARNING:Xst:2999 - Signal 'da_lut', unconnected in block 'da_fir_filter', is tied to its initial value.
+    Found 16x16-bit single-port Read Only RAM <Mram_da_lut> for signal <da_lut>.
+    Found 16-bit register for signal <y_out>.
+    Found 64-bit register for signal <n0012[63:0]>.
+    Found 1-bit register for signal <valid_out>.
+    Found 16-bit adder for signal <n0032> created at line 56.
+    Found 16-bit adder for signal <n0035> created at line 56.
+    Found 16-bit adder for signal <n0038> created at line 56.
+    Found 16-bit adder for signal <tap[0][15]_tap[3][15]_add_4_OUT> created at line 56.
+    Summary:
+	inferred   1 RAM(s).
+	inferred   4 Adder/Subtractor(s).
+	inferred  81 D-type flip-flop(s).
+Unit <da_fir_filter> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 1
+ 16x16-bit single-port Read Only RAM                   : 1
+# Multipliers                                          : 2
+ 16x16-bit multiplier                                  : 2
+# Adders/Subtractors                                   : 50
+ 16-bit adder                                          : 10
+ 16-bit addsub                                         : 36
+ 16-bit subtractor                                     : 4
+# Registers                                            : 41
+ 1-bit register                                        : 15
+ 14-bit register                                       : 1
+ 16-bit register                                       : 17
+ 2-bit register                                        : 2
+ 224-bit register                                      : 1
+ 32-bit register                                       : 4
+ 64-bit register                                       : 1
+# Comparators                                          : 21
+ 1-bit comparator equal                                : 2
+ 16-bit comparator greater                             : 17
+ 32-bit comparator greater                             : 2
+# Multiplexers                                         : 102
+ 1-bit 2-to-1 multiplexer                              : 98
+ 16-bit 2-to-1 multiplexer                             : 2
+ 2-bit 2-to-1 multiplexer                              : 2
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+INFO:Xst:2261 - The FF/Latch <x_est_out_6> in Unit <u_kalman_x> is equivalent to the following FF/Latch, which will be removed : <x_est_6> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_7> in Unit <u_kalman_x> is equivalent to the following FF/Latch, which will be removed : <x_est_7> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_8> in Unit <u_kalman_x> is equivalent to the following FF/Latch, which will be removed : <x_est_8> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_9> in Unit <u_kalman_x> is equivalent to the following FF/Latch, which will be removed : <x_est_9> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_10> in Unit <u_kalman_x> is equivalent to the following FF/Latch, which will be removed : <x_est_10> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_11> in Unit <u_kalman_x> is equivalent to the following FF/Latch, which will be removed : <x_est_11> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_12> in Unit <u_kalman_x> is equivalent to the following FF/Latch, which will be removed : <x_est_12> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_13> in Unit <u_kalman_x> is equivalent to the following FF/Latch, which will be removed : <x_est_13> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_14> in Unit <u_kalman_x> is equivalent to the following FF/Latch, which will be removed : <x_est_14> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_15> in Unit <u_kalman_x> is equivalent to the following FF/Latch, which will be removed : <x_est_15> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_0> in Unit <u_kalman_x> is equivalent to the following FF/Latch, which will be removed : <x_est_0> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_1> in Unit <u_kalman_x> is equivalent to the following FF/Latch, which will be removed : <x_est_1> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_2> in Unit <u_kalman_x> is equivalent to the following FF/Latch, which will be removed : <x_est_2> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_3> in Unit <u_kalman_x> is equivalent to the following FF/Latch, which will be removed : <x_est_3> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_4> in Unit <u_kalman_x> is equivalent to the following FF/Latch, which will be removed : <x_est_4> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_5> in Unit <u_kalman_x> is equivalent to the following FF/Latch, which will be removed : <x_est_5> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_6> in Unit <u_kalman_y> is equivalent to the following FF/Latch, which will be removed : <x_est_6> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_7> in Unit <u_kalman_y> is equivalent to the following FF/Latch, which will be removed : <x_est_7> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_8> in Unit <u_kalman_y> is equivalent to the following FF/Latch, which will be removed : <x_est_8> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_9> in Unit <u_kalman_y> is equivalent to the following FF/Latch, which will be removed : <x_est_9> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_10> in Unit <u_kalman_y> is equivalent to the following FF/Latch, which will be removed : <x_est_10> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_11> in Unit <u_kalman_y> is equivalent to the following FF/Latch, which will be removed : <x_est_11> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_12> in Unit <u_kalman_y> is equivalent to the following FF/Latch, which will be removed : <x_est_12> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_13> in Unit <u_kalman_y> is equivalent to the following FF/Latch, which will be removed : <x_est_13> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_14> in Unit <u_kalman_y> is equivalent to the following FF/Latch, which will be removed : <x_est_14> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_15> in Unit <u_kalman_y> is equivalent to the following FF/Latch, which will be removed : <x_est_15> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_0> in Unit <u_kalman_y> is equivalent to the following FF/Latch, which will be removed : <x_est_0> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_1> in Unit <u_kalman_y> is equivalent to the following FF/Latch, which will be removed : <x_est_1> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_2> in Unit <u_kalman_y> is equivalent to the following FF/Latch, which will be removed : <x_est_2> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_3> in Unit <u_kalman_y> is equivalent to the following FF/Latch, which will be removed : <x_est_3> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_4> in Unit <u_kalman_y> is equivalent to the following FF/Latch, which will be removed : <x_est_4> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_5> in Unit <u_kalman_y> is equivalent to the following FF/Latch, which will be removed : <x_est_5> 
+WARNING:Xst:2677 - Node <tap_3_0> of sequential type is unconnected in block <u_imu_fir>.
+WARNING:Xst:2677 - Node <tap_3_1> of sequential type is unconnected in block <u_imu_fir>.
+WARNING:Xst:2677 - Node <tap_3_2> of sequential type is unconnected in block <u_imu_fir>.
+WARNING:Xst:2677 - Node <tap_3_16> of sequential type is unconnected in block <u_imu_fir>.
+WARNING:Xst:2677 - Node <tap_3_17> of sequential type is unconnected in block <u_imu_fir>.
+WARNING:Xst:2677 - Node <tap_3_32> of sequential type is unconnected in block <u_imu_fir>.
+WARNING:Xst:2677 - Node <tap_3_33> of sequential type is unconnected in block <u_imu_fir>.
+WARNING:Xst:2677 - Node <tap_3_48> of sequential type is unconnected in block <u_imu_fir>.
+WARNING:Xst:2677 - Node <tap_3_49> of sequential type is unconnected in block <u_imu_fir>.
+WARNING:Xst:2677 - Node <mult_x_stage1_0> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_1> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_2> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_3> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_4> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_5> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_6> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_7> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_8> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_9> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_10> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_11> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_12> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_29> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_30> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_31> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_0> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_1> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_2> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_3> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_4> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_5> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_6> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_7> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_8> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_9> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_10> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_11> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_12> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_29> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_30> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_31> of sequential type is unconnected in block <System_Top_Integrated>.
+
+Synthesizing (advanced) Unit <adaptive_kalman_filter_1d>.
+The following registers are absorbed into accumulator <v_est>: 1 register on signal <v_est>.
+Unit <adaptive_kalman_filter_1d> synthesized (advanced).
+
+Synthesizing (advanced) Unit <da_fir_filter>.
+	The following adders/subtractors are grouped into adder tree <Madd_tap[0][15]_tap[3][15]_add_4_OUT1> :
+ 	<Madd_n0032> in block <da_fir_filter>, 	<Madd_n0035> in block <da_fir_filter>, 	<Madd_n0038> in block <da_fir_filter>, 	<Madd_tap[0][15]_tap[3][15]_add_4_OUT> in block <da_fir_filter>.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_da_lut> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 16-word x 16-bit                    |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <(n0012[63:0]<63>,n0012[63:0]<47>,n0012[63:0]<31>,n0012[63:0]<15>)> |          |
+    |     diA            | connected to signal <GND>           |          |
+    -----------------------------------------------------------------------
+Unit <da_fir_filter> synthesized (advanced).
+WARNING:Xst:2677 - Node <tap_3_0> of sequential type is unconnected in block <da_fir_filter>.
+WARNING:Xst:2677 - Node <tap_3_1> of sequential type is unconnected in block <da_fir_filter>.
+WARNING:Xst:2677 - Node <tap_3_2> of sequential type is unconnected in block <da_fir_filter>.
+WARNING:Xst:2677 - Node <tap_3_16> of sequential type is unconnected in block <da_fir_filter>.
+WARNING:Xst:2677 - Node <tap_3_17> of sequential type is unconnected in block <da_fir_filter>.
+WARNING:Xst:2677 - Node <tap_3_32> of sequential type is unconnected in block <da_fir_filter>.
+WARNING:Xst:2677 - Node <tap_3_33> of sequential type is unconnected in block <da_fir_filter>.
+WARNING:Xst:2677 - Node <tap_3_48> of sequential type is unconnected in block <da_fir_filter>.
+WARNING:Xst:2677 - Node <tap_3_49> of sequential type is unconnected in block <da_fir_filter>.
+WARNING:Xst:2677 - Node <mult_x_stage1_0> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_1> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_2> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_3> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_4> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_5> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_6> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_7> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_8> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_9> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_10> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_11> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_12> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_29> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_30> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_x_stage1_31> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_0> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_1> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_2> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_3> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_4> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_5> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_6> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_7> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_8> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_9> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_10> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_11> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_12> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_29> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_30> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <mult_y_stage1_31> of sequential type is unconnected in block <System_Top_Integrated>.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 1
+ 16x16-bit single-port distributed Read Only RAM       : 1
+# Multipliers                                          : 2
+ 16x16-bit multiplier                                  : 2
+# Adders/Subtractors                                   : 46
+ 16-bit adder                                          : 6
+ 16-bit addsub                                         : 36
+ 16-bit subtractor                                     : 4
+# Adder Trees                                          : 1
+ 16-bit / 5-inputs adder tree                          : 1
+# Accumulators                                         : 2
+ 16-bit up accumulator                                 : 2
+# Registers                                            : 648
+ Flip-Flops                                            : 648
+# Comparators                                          : 21
+ 1-bit comparator equal                                : 2
+ 16-bit comparator greater                             : 17
+ 32-bit comparator greater                             : 2
+# Multiplexers                                         : 102
+ 1-bit 2-to-1 multiplexer                              : 98
+ 16-bit 2-to-1 multiplexer                             : 2
+ 2-bit 2-to-1 multiplexer                              : 2
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+INFO:Xst:2261 - The FF/Latch <x_est_out_6> in Unit <adaptive_kalman_filter_1d> is equivalent to the following FF/Latch, which will be removed : <x_est_6> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_7> in Unit <adaptive_kalman_filter_1d> is equivalent to the following FF/Latch, which will be removed : <x_est_7> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_8> in Unit <adaptive_kalman_filter_1d> is equivalent to the following FF/Latch, which will be removed : <x_est_8> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_9> in Unit <adaptive_kalman_filter_1d> is equivalent to the following FF/Latch, which will be removed : <x_est_9> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_10> in Unit <adaptive_kalman_filter_1d> is equivalent to the following FF/Latch, which will be removed : <x_est_10> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_11> in Unit <adaptive_kalman_filter_1d> is equivalent to the following FF/Latch, which will be removed : <x_est_11> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_12> in Unit <adaptive_kalman_filter_1d> is equivalent to the following FF/Latch, which will be removed : <x_est_12> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_13> in Unit <adaptive_kalman_filter_1d> is equivalent to the following FF/Latch, which will be removed : <x_est_13> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_14> in Unit <adaptive_kalman_filter_1d> is equivalent to the following FF/Latch, which will be removed : <x_est_14> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_15> in Unit <adaptive_kalman_filter_1d> is equivalent to the following FF/Latch, which will be removed : <x_est_15> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_0> in Unit <adaptive_kalman_filter_1d> is equivalent to the following FF/Latch, which will be removed : <x_est_0> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_1> in Unit <adaptive_kalman_filter_1d> is equivalent to the following FF/Latch, which will be removed : <x_est_1> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_2> in Unit <adaptive_kalman_filter_1d> is equivalent to the following FF/Latch, which will be removed : <x_est_2> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_3> in Unit <adaptive_kalman_filter_1d> is equivalent to the following FF/Latch, which will be removed : <x_est_3> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_4> in Unit <adaptive_kalman_filter_1d> is equivalent to the following FF/Latch, which will be removed : <x_est_4> 
+INFO:Xst:2261 - The FF/Latch <x_est_out_5> in Unit <adaptive_kalman_filter_1d> is equivalent to the following FF/Latch, which will be removed : <x_est_5> 
+
+Optimizing unit <System_Top_Integrated> ...
+
+Optimizing unit <da_fir_filter> ...
+
+Optimizing unit <cdc_handshake> ...
+
+Optimizing unit <CORDIC_HDL_Core_fixpt> ...
+
+Optimizing unit <adaptive_kalman_filter_1d> ...
+WARNING:Xst:2677 - Node <u_kalman_y/v_est_out_15> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_y/v_est_out_14> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_y/v_est_out_13> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_y/v_est_out_12> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_y/v_est_out_11> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_y/v_est_out_10> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_y/v_est_out_9> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_y/v_est_out_8> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_y/v_est_out_7> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_y/v_est_out_6> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_y/v_est_out_5> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_y/v_est_out_4> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_y/v_est_out_3> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_y/v_est_out_2> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_y/v_est_out_1> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_y/v_est_out_0> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_y/filter_mode_out_1> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_y/filter_mode_out_0> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_x/v_est_out_15> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_x/v_est_out_14> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_x/v_est_out_13> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_x/v_est_out_12> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_x/v_est_out_11> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_x/v_est_out_10> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_x/v_est_out_9> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_x/v_est_out_8> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_x/v_est_out_7> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_x/v_est_out_6> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_x/v_est_out_5> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_x/v_est_out_4> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_x/v_est_out_3> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_x/v_est_out_2> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_x/v_est_out_1> of sequential type is unconnected in block <System_Top_Integrated>.
+WARNING:Xst:2677 - Node <u_kalman_x/v_est_out_0> of sequential type is unconnected in block <System_Top_Integrated>.
+INFO:Xst:2261 - The FF/Latch <u_lidar_cdc/ack_toggle> in Unit <System_Top_Integrated> is equivalent to the following FF/Latch, which will be removed : <u_lidar_cdc/req_sync2_d> 
+INFO:Xst:2261 - The FF/Latch <u_kalman_x/valid_out> in Unit <System_Top_Integrated> is equivalent to the following FF/Latch, which will be removed : <u_kalman_y/valid_out> 
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block System_Top_Integrated, actual ratio is 13.
+FlipFlop u_cordic/theta_in_1_15 has been replicated 2 time(s)
+
+Final Macro Processing ...
+
+Processing Unit <System_Top_Integrated> :
+	Found 14-bit shift register for signal <r_pipe_13_0>.
+	Found 14-bit shift register for signal <r_pipe_13_1>.
+	Found 14-bit shift register for signal <r_pipe_13_2>.
+	Found 14-bit shift register for signal <r_pipe_13_3>.
+	Found 14-bit shift register for signal <r_pipe_13_4>.
+	Found 14-bit shift register for signal <r_pipe_13_5>.
+	Found 14-bit shift register for signal <r_pipe_13_6>.
+	Found 14-bit shift register for signal <r_pipe_13_7>.
+	Found 14-bit shift register for signal <r_pipe_13_8>.
+	Found 14-bit shift register for signal <r_pipe_13_9>.
+	Found 14-bit shift register for signal <r_pipe_13_10>.
+	Found 14-bit shift register for signal <r_pipe_13_11>.
+	Found 14-bit shift register for signal <r_pipe_13_12>.
+	Found 14-bit shift register for signal <r_pipe_13_13>.
+	Found 14-bit shift register for signal <r_pipe_13_14>.
+	Found 14-bit shift register for signal <r_pipe_13_15>.
+	Found 17-bit shift register for signal <mult_vld>.
+Unit <System_Top_Integrated> processed.
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 373
+ Flip-Flops                                            : 373
+# Shift Registers                                      : 17
+ 14-bit shift register                                 : 16
+ 17-bit shift register                                 : 1
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : System_Top_Integrated.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 4137
+#      GND                         : 1
+#      INV                         : 70
+#      LUT1                        : 21
+#      LUT2                        : 773
+#      LUT3                        : 429
+#      LUT4                        : 223
+#      LUT5                        : 7
+#      LUT6                        : 61
+#      MUXCY                       : 1264
+#      MUXF7                       : 2
+#      VCC                         : 1
+#      XORCY                       : 1285
+# FlipFlops/Latches                : 423
+#      FDC                         : 120
+#      FDCE                        : 235
+#      FDE                         : 17
+#      FDPE                        : 1
+#      FDR                         : 50
+# Shift Registers                  : 17
+#      SRLC16E                     : 17
+# Clock Buffers                    : 2
+#      BUFGP                       : 2
+# IO Buffers                       : 102
+#      IBUF                        : 49
+#      OBUF                        : 53
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx25fgg484-3 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:             423  out of  30064     1%  
+ Number of Slice LUTs:                 1601  out of  15032    10%  
+    Number used as Logic:              1584  out of  15032    10%  
+    Number used as Memory:               17  out of   3664     0%  
+       Number used as SRL:               17
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:   1814
+   Number with an unused Flip Flop:    1391  out of   1814    76%  
+   Number with an unused LUT:           213  out of   1814    11%  
+   Number of fully used LUT-FF pairs:   210  out of   1814    11%  
+   Number of unique control sets:         9
+
+IO Utilization: 
+ Number of IOs:                         106
+ Number of bonded IOBs:                 104  out of    266    39%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                2  out of     16    12%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+sys_clk                            | BUFGP                  | 405   |
+lidar_clk                          | BUFGP                  | 35    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -3
+
+   Minimum period: 35.689ns (Maximum Frequency: 28.020MHz)
+   Minimum input arrival time before clock: 3.862ns
+   Maximum output required time after clock: 4.521ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'sys_clk'
+  Clock period: 35.689ns (frequency: 28.020MHz)
+  Total number of paths / destination ports: 1376163440968997300000 / 455
+-------------------------------------------------------------------------
+Delay:               35.689ns (Levels of Logic = 221)
+  Source:            u_cordic/theta_in_1_15_1 (FF)
+  Destination:       u_cordic/x_out_1_15 (FF)
+  Source Clock:      sys_clk rising
+  Destination Clock: sys_clk rising
+
+  Data Path: u_cordic/theta_in_1_15_1 to u_cordic/x_out_1_15
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              1   0.447   0.579  u_cordic/theta_in_1_15_1 (u_cordic/theta_in_1_15_1)
+     INV:I->O              1   0.206   0.579  u_cordic/tmp_60_GND_3_o_equal_80_o_inv2_INV_0 (u_cordic/tmp_60_GND_3_o_equal_80_o_inv)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_3_cy<0> (u_cordic/Maddsub_tmp_3_cy<0>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_3_cy<1> (u_cordic/Maddsub_tmp_3_cy<1>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_3_cy<2> (u_cordic/Maddsub_tmp_3_cy<2>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_3_cy<3> (u_cordic/Maddsub_tmp_3_cy<3>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_3_cy<4> (u_cordic/Maddsub_tmp_3_cy<4>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_3_cy<5> (u_cordic/Maddsub_tmp_3_cy<5>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_3_cy<6> (u_cordic/Maddsub_tmp_3_cy<6>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_3_cy<7> (u_cordic/Maddsub_tmp_3_cy<7>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_3_cy<8> (u_cordic/Maddsub_tmp_3_cy<8>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_3_cy<9> (u_cordic/Maddsub_tmp_3_cy<9>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_3_cy<10> (u_cordic/Maddsub_tmp_3_cy<10>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_3_cy<11> (u_cordic/Maddsub_tmp_3_cy<11>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_3_cy<12> (u_cordic/Maddsub_tmp_3_cy<12>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_3_cy<13> (u_cordic/Maddsub_tmp_3_cy<13>)
+     MUXCY:CI->O           0   0.019   0.000  u_cordic/Maddsub_tmp_3_cy<14> (u_cordic/Maddsub_tmp_3_cy<14>)
+     XORCY:CI->O          32   0.180   1.291  u_cordic/Maddsub_tmp_3_xor<15> (u_cordic/Maddsub_tmp_66_lut<0>)
+     INV:I->O              1   0.206   0.579  u_cordic/tmp_59_GND_3_o_equal_90_o_inv2_INV_0 (u_cordic/tmp_59_GND_3_o_equal_90_o_inv)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_7_cy<0> (u_cordic/Maddsub_tmp_7_cy<0>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_7_cy<1> (u_cordic/Maddsub_tmp_7_cy<1>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_7_cy<2> (u_cordic/Maddsub_tmp_7_cy<2>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_7_cy<3> (u_cordic/Maddsub_tmp_7_cy<3>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_7_cy<4> (u_cordic/Maddsub_tmp_7_cy<4>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_7_cy<5> (u_cordic/Maddsub_tmp_7_cy<5>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_7_cy<6> (u_cordic/Maddsub_tmp_7_cy<6>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_7_cy<7> (u_cordic/Maddsub_tmp_7_cy<7>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_7_cy<8> (u_cordic/Maddsub_tmp_7_cy<8>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_7_cy<9> (u_cordic/Maddsub_tmp_7_cy<9>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_7_cy<10> (u_cordic/Maddsub_tmp_7_cy<10>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_7_cy<11> (u_cordic/Maddsub_tmp_7_cy<11>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_7_cy<12> (u_cordic/Maddsub_tmp_7_cy<12>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_7_cy<13> (u_cordic/Maddsub_tmp_7_cy<13>)
+     MUXCY:CI->O           0   0.019   0.000  u_cordic/Maddsub_tmp_7_cy<14> (u_cordic/Maddsub_tmp_7_cy<14>)
+     XORCY:CI->O          49   0.180   1.533  u_cordic/Maddsub_tmp_7_xor<15> (u_cordic/Maddsub_tmp_77_lut<0>)
+     INV:I->O              2   0.206   0.616  u_cordic/tmp_58_GND_3_o_equal_101_o_inv2_INV_0 (u_cordic/tmp_58_GND_3_o_equal_101_o_inv)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_11_cy<0> (u_cordic/Maddsub_tmp_11_cy<0>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_11_cy<1> (u_cordic/Maddsub_tmp_11_cy<1>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_11_cy<2> (u_cordic/Maddsub_tmp_11_cy<2>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_11_cy<3> (u_cordic/Maddsub_tmp_11_cy<3>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_11_cy<4> (u_cordic/Maddsub_tmp_11_cy<4>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_11_cy<5> (u_cordic/Maddsub_tmp_11_cy<5>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_11_cy<6> (u_cordic/Maddsub_tmp_11_cy<6>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_11_cy<7> (u_cordic/Maddsub_tmp_11_cy<7>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_11_cy<8> (u_cordic/Maddsub_tmp_11_cy<8>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_11_cy<9> (u_cordic/Maddsub_tmp_11_cy<9>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_11_cy<10> (u_cordic/Maddsub_tmp_11_cy<10>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_11_cy<11> (u_cordic/Maddsub_tmp_11_cy<11>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_11_cy<12> (u_cordic/Maddsub_tmp_11_cy<12>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_11_cy<13> (u_cordic/Maddsub_tmp_11_cy<13>)
+     MUXCY:CI->O           0   0.019   0.000  u_cordic/Maddsub_tmp_11_cy<14> (u_cordic/Maddsub_tmp_11_cy<14>)
+     XORCY:CI->O          49   0.180   1.533  u_cordic/Maddsub_tmp_11_xor<15> (u_cordic/tmp_11<15>)
+     INV:I->O              2   0.206   0.616  u_cordic/tmp_57_GND_3_o_equal_112_o_inv2_INV_0 (u_cordic/tmp_57_GND_3_o_equal_112_o_inv)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_15_cy<0> (u_cordic/Maddsub_tmp_15_cy<0>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_15_cy<1> (u_cordic/Maddsub_tmp_15_cy<1>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_15_cy<2> (u_cordic/Maddsub_tmp_15_cy<2>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_15_cy<3> (u_cordic/Maddsub_tmp_15_cy<3>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_15_cy<4> (u_cordic/Maddsub_tmp_15_cy<4>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_15_cy<5> (u_cordic/Maddsub_tmp_15_cy<5>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_15_cy<6> (u_cordic/Maddsub_tmp_15_cy<6>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_15_cy<7> (u_cordic/Maddsub_tmp_15_cy<7>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_15_cy<8> (u_cordic/Maddsub_tmp_15_cy<8>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_15_cy<9> (u_cordic/Maddsub_tmp_15_cy<9>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_15_cy<10> (u_cordic/Maddsub_tmp_15_cy<10>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_15_cy<11> (u_cordic/Maddsub_tmp_15_cy<11>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_15_cy<12> (u_cordic/Maddsub_tmp_15_cy<12>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_15_cy<13> (u_cordic/Maddsub_tmp_15_cy<13>)
+     MUXCY:CI->O           0   0.019   0.000  u_cordic/Maddsub_tmp_15_cy<14> (u_cordic/Maddsub_tmp_15_cy<14>)
+     XORCY:CI->O          49   0.180   1.533  u_cordic/Maddsub_tmp_15_xor<15> (u_cordic/tmp_15<15>)
+     INV:I->O              2   0.206   0.616  u_cordic/tmp_56_GND_3_o_equal_123_o_inv2_INV_0 (u_cordic/tmp_56_GND_3_o_equal_123_o_inv)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_19_cy<0> (u_cordic/Maddsub_tmp_19_cy<0>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_19_cy<1> (u_cordic/Maddsub_tmp_19_cy<1>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_19_cy<2> (u_cordic/Maddsub_tmp_19_cy<2>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_19_cy<3> (u_cordic/Maddsub_tmp_19_cy<3>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_19_cy<4> (u_cordic/Maddsub_tmp_19_cy<4>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_19_cy<5> (u_cordic/Maddsub_tmp_19_cy<5>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_19_cy<6> (u_cordic/Maddsub_tmp_19_cy<6>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_19_cy<7> (u_cordic/Maddsub_tmp_19_cy<7>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_19_cy<8> (u_cordic/Maddsub_tmp_19_cy<8>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_19_cy<9> (u_cordic/Maddsub_tmp_19_cy<9>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_19_cy<10> (u_cordic/Maddsub_tmp_19_cy<10>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_19_cy<11> (u_cordic/Maddsub_tmp_19_cy<11>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_19_cy<12> (u_cordic/Maddsub_tmp_19_cy<12>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_19_cy<13> (u_cordic/Maddsub_tmp_19_cy<13>)
+     MUXCY:CI->O           0   0.019   0.000  u_cordic/Maddsub_tmp_19_cy<14> (u_cordic/Maddsub_tmp_19_cy<14>)
+     XORCY:CI->O          49   0.180   1.533  u_cordic/Maddsub_tmp_19_xor<15> (u_cordic/tmp_19<15>)
+     INV:I->O              2   0.206   0.616  u_cordic/tmp_55_GND_3_o_equal_134_o_inv2_INV_0 (u_cordic/tmp_55_GND_3_o_equal_134_o_inv)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_23_cy<0> (u_cordic/Maddsub_tmp_23_cy<0>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_23_cy<1> (u_cordic/Maddsub_tmp_23_cy<1>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_23_cy<2> (u_cordic/Maddsub_tmp_23_cy<2>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_23_cy<3> (u_cordic/Maddsub_tmp_23_cy<3>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_23_cy<4> (u_cordic/Maddsub_tmp_23_cy<4>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_23_cy<5> (u_cordic/Maddsub_tmp_23_cy<5>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_23_cy<6> (u_cordic/Maddsub_tmp_23_cy<6>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_23_cy<7> (u_cordic/Maddsub_tmp_23_cy<7>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_23_cy<8> (u_cordic/Maddsub_tmp_23_cy<8>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_23_cy<9> (u_cordic/Maddsub_tmp_23_cy<9>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_23_cy<10> (u_cordic/Maddsub_tmp_23_cy<10>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_23_cy<11> (u_cordic/Maddsub_tmp_23_cy<11>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_23_cy<12> (u_cordic/Maddsub_tmp_23_cy<12>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_23_cy<13> (u_cordic/Maddsub_tmp_23_cy<13>)
+     MUXCY:CI->O           0   0.019   0.000  u_cordic/Maddsub_tmp_23_cy<14> (u_cordic/Maddsub_tmp_23_cy<14>)
+     XORCY:CI->O          49   0.180   1.533  u_cordic/Maddsub_tmp_23_xor<15> (u_cordic/tmp_23<15>)
+     INV:I->O              2   0.206   0.616  u_cordic/tmp_54_GND_3_o_equal_145_o_inv2_INV_0 (u_cordic/tmp_54_GND_3_o_equal_145_o_inv)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_27_cy<0> (u_cordic/Maddsub_tmp_27_cy<0>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_27_cy<1> (u_cordic/Maddsub_tmp_27_cy<1>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_27_cy<2> (u_cordic/Maddsub_tmp_27_cy<2>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_27_cy<3> (u_cordic/Maddsub_tmp_27_cy<3>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_27_cy<4> (u_cordic/Maddsub_tmp_27_cy<4>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_27_cy<5> (u_cordic/Maddsub_tmp_27_cy<5>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_27_cy<6> (u_cordic/Maddsub_tmp_27_cy<6>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_27_cy<7> (u_cordic/Maddsub_tmp_27_cy<7>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_27_cy<8> (u_cordic/Maddsub_tmp_27_cy<8>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_27_cy<9> (u_cordic/Maddsub_tmp_27_cy<9>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_27_cy<10> (u_cordic/Maddsub_tmp_27_cy<10>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_27_cy<11> (u_cordic/Maddsub_tmp_27_cy<11>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_27_cy<12> (u_cordic/Maddsub_tmp_27_cy<12>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_27_cy<13> (u_cordic/Maddsub_tmp_27_cy<13>)
+     MUXCY:CI->O           0   0.019   0.000  u_cordic/Maddsub_tmp_27_cy<14> (u_cordic/Maddsub_tmp_27_cy<14>)
+     XORCY:CI->O          49   0.180   1.533  u_cordic/Maddsub_tmp_27_xor<15> (u_cordic/tmp_27<15>)
+     INV:I->O              2   0.206   0.616  u_cordic/tmp_53_GND_3_o_equal_156_o_inv2_INV_0 (u_cordic/tmp_53_GND_3_o_equal_156_o_inv)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_31_cy<0> (u_cordic/Maddsub_tmp_31_cy<0>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_31_cy<1> (u_cordic/Maddsub_tmp_31_cy<1>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_31_cy<2> (u_cordic/Maddsub_tmp_31_cy<2>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_31_cy<3> (u_cordic/Maddsub_tmp_31_cy<3>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_31_cy<4> (u_cordic/Maddsub_tmp_31_cy<4>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_31_cy<5> (u_cordic/Maddsub_tmp_31_cy<5>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_31_cy<6> (u_cordic/Maddsub_tmp_31_cy<6>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_31_cy<7> (u_cordic/Maddsub_tmp_31_cy<7>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_31_cy<8> (u_cordic/Maddsub_tmp_31_cy<8>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_31_cy<9> (u_cordic/Maddsub_tmp_31_cy<9>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_31_cy<10> (u_cordic/Maddsub_tmp_31_cy<10>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_31_cy<11> (u_cordic/Maddsub_tmp_31_cy<11>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_31_cy<12> (u_cordic/Maddsub_tmp_31_cy<12>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_31_cy<13> (u_cordic/Maddsub_tmp_31_cy<13>)
+     MUXCY:CI->O           0   0.019   0.000  u_cordic/Maddsub_tmp_31_cy<14> (u_cordic/Maddsub_tmp_31_cy<14>)
+     XORCY:CI->O          49   0.180   1.533  u_cordic/Maddsub_tmp_31_xor<15> (u_cordic/tmp_31<15>)
+     INV:I->O              2   0.206   0.616  u_cordic/tmp_52_GND_3_o_equal_167_o_inv2_INV_0 (u_cordic/tmp_52_GND_3_o_equal_167_o_inv)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_35_cy<0> (u_cordic/Maddsub_tmp_35_cy<0>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_35_cy<1> (u_cordic/Maddsub_tmp_35_cy<1>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_35_cy<2> (u_cordic/Maddsub_tmp_35_cy<2>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_35_cy<3> (u_cordic/Maddsub_tmp_35_cy<3>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_35_cy<4> (u_cordic/Maddsub_tmp_35_cy<4>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_35_cy<5> (u_cordic/Maddsub_tmp_35_cy<5>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_35_cy<6> (u_cordic/Maddsub_tmp_35_cy<6>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_35_cy<7> (u_cordic/Maddsub_tmp_35_cy<7>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_35_cy<8> (u_cordic/Maddsub_tmp_35_cy<8>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_35_cy<9> (u_cordic/Maddsub_tmp_35_cy<9>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_35_cy<10> (u_cordic/Maddsub_tmp_35_cy<10>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_35_cy<11> (u_cordic/Maddsub_tmp_35_cy<11>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_35_cy<12> (u_cordic/Maddsub_tmp_35_cy<12>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_35_cy<13> (u_cordic/Maddsub_tmp_35_cy<13>)
+     MUXCY:CI->O           0   0.019   0.000  u_cordic/Maddsub_tmp_35_cy<14> (u_cordic/Maddsub_tmp_35_cy<14>)
+     XORCY:CI->O          49   0.180   1.533  u_cordic/Maddsub_tmp_35_xor<15> (u_cordic/tmp_35<15>)
+     INV:I->O              2   0.206   0.616  u_cordic/tmp_51_GND_3_o_equal_178_o_inv2_INV_0 (u_cordic/tmp_51_GND_3_o_equal_178_o_inv)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_39_cy<0> (u_cordic/Maddsub_tmp_39_cy<0>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_39_cy<1> (u_cordic/Maddsub_tmp_39_cy<1>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_39_cy<2> (u_cordic/Maddsub_tmp_39_cy<2>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_39_cy<3> (u_cordic/Maddsub_tmp_39_cy<3>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_39_cy<4> (u_cordic/Maddsub_tmp_39_cy<4>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_39_cy<5> (u_cordic/Maddsub_tmp_39_cy<5>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_39_cy<6> (u_cordic/Maddsub_tmp_39_cy<6>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_39_cy<7> (u_cordic/Maddsub_tmp_39_cy<7>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_39_cy<8> (u_cordic/Maddsub_tmp_39_cy<8>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_39_cy<9> (u_cordic/Maddsub_tmp_39_cy<9>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_39_cy<10> (u_cordic/Maddsub_tmp_39_cy<10>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_39_cy<11> (u_cordic/Maddsub_tmp_39_cy<11>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_39_cy<12> (u_cordic/Maddsub_tmp_39_cy<12>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_39_cy<13> (u_cordic/Maddsub_tmp_39_cy<13>)
+     MUXCY:CI->O           0   0.019   0.000  u_cordic/Maddsub_tmp_39_cy<14> (u_cordic/Maddsub_tmp_39_cy<14>)
+     XORCY:CI->O          49   0.180   1.533  u_cordic/Maddsub_tmp_39_xor<15> (u_cordic/tmp_39<15>)
+     INV:I->O              2   0.206   0.616  u_cordic/tmp_50_GND_3_o_equal_189_o_inv2_INV_0 (u_cordic/tmp_50_GND_3_o_equal_189_o_inv)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_43_cy<0> (u_cordic/Maddsub_tmp_43_cy<0>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_43_cy<1> (u_cordic/Maddsub_tmp_43_cy<1>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_43_cy<2> (u_cordic/Maddsub_tmp_43_cy<2>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_43_cy<3> (u_cordic/Maddsub_tmp_43_cy<3>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_43_cy<4> (u_cordic/Maddsub_tmp_43_cy<4>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_43_cy<5> (u_cordic/Maddsub_tmp_43_cy<5>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_43_cy<6> (u_cordic/Maddsub_tmp_43_cy<6>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_43_cy<7> (u_cordic/Maddsub_tmp_43_cy<7>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_43_cy<8> (u_cordic/Maddsub_tmp_43_cy<8>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_43_cy<9> (u_cordic/Maddsub_tmp_43_cy<9>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_43_cy<10> (u_cordic/Maddsub_tmp_43_cy<10>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_43_cy<11> (u_cordic/Maddsub_tmp_43_cy<11>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_43_cy<12> (u_cordic/Maddsub_tmp_43_cy<12>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_43_cy<13> (u_cordic/Maddsub_tmp_43_cy<13>)
+     MUXCY:CI->O           0   0.019   0.000  u_cordic/Maddsub_tmp_43_cy<14> (u_cordic/Maddsub_tmp_43_cy<14>)
+     XORCY:CI->O          49   0.180   1.533  u_cordic/Maddsub_tmp_43_xor<15> (u_cordic/tmp_43<15>)
+     INV:I->O              2   0.206   0.616  u_cordic/tmp_49_GND_3_o_equal_200_o_inv2_INV_0 (u_cordic/tmp_49_GND_3_o_equal_200_o_inv)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_47_cy<0> (u_cordic/Maddsub_tmp_47_cy<0>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_47_cy<1> (u_cordic/Maddsub_tmp_47_cy<1>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_47_cy<2> (u_cordic/Maddsub_tmp_47_cy<2>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_47_cy<3> (u_cordic/Maddsub_tmp_47_cy<3>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_47_cy<4> (u_cordic/Maddsub_tmp_47_cy<4>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_47_cy<5> (u_cordic/Maddsub_tmp_47_cy<5>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_47_cy<6> (u_cordic/Maddsub_tmp_47_cy<6>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_47_cy<7> (u_cordic/Maddsub_tmp_47_cy<7>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_47_cy<8> (u_cordic/Maddsub_tmp_47_cy<8>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_47_cy<9> (u_cordic/Maddsub_tmp_47_cy<9>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_47_cy<10> (u_cordic/Maddsub_tmp_47_cy<10>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_47_cy<11> (u_cordic/Maddsub_tmp_47_cy<11>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_47_cy<12> (u_cordic/Maddsub_tmp_47_cy<12>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_47_cy<13> (u_cordic/Maddsub_tmp_47_cy<13>)
+     MUXCY:CI->O           0   0.019   0.000  u_cordic/Maddsub_tmp_47_cy<14> (u_cordic/Maddsub_tmp_47_cy<14>)
+     XORCY:CI->O          34   0.180   1.320  u_cordic/Maddsub_tmp_47_xor<15> (u_cordic/tmp_47<15>)
+     INV:I->O              1   0.206   0.579  u_cordic/tmp_48_GND_3_o_equal_211_o_inv2_INV_0 (u_cordic/tmp_48_GND_3_o_equal_211_o_inv)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_143_cy<0> (u_cordic/Maddsub_tmp_143_cy<0>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_143_cy<1> (u_cordic/Maddsub_tmp_143_cy<1>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_143_cy<2> (u_cordic/Maddsub_tmp_143_cy<2>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_143_cy<3> (u_cordic/Maddsub_tmp_143_cy<3>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_143_cy<4> (u_cordic/Maddsub_tmp_143_cy<4>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_143_cy<5> (u_cordic/Maddsub_tmp_143_cy<5>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_143_cy<6> (u_cordic/Maddsub_tmp_143_cy<6>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_143_cy<7> (u_cordic/Maddsub_tmp_143_cy<7>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_143_cy<8> (u_cordic/Maddsub_tmp_143_cy<8>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_143_cy<9> (u_cordic/Maddsub_tmp_143_cy<9>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_143_cy<10> (u_cordic/Maddsub_tmp_143_cy<10>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_143_cy<11> (u_cordic/Maddsub_tmp_143_cy<11>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_143_cy<12> (u_cordic/Maddsub_tmp_143_cy<12>)
+     MUXCY:CI->O           1   0.019   0.000  u_cordic/Maddsub_tmp_143_cy<13> (u_cordic/Maddsub_tmp_143_cy<13>)
+     MUXCY:CI->O           0   0.019   0.000  u_cordic/Maddsub_tmp_143_cy<14> (u_cordic/Maddsub_tmp_143_cy<14>)
+     XORCY:CI->O           1   0.180   0.000  u_cordic/Maddsub_tmp_143_xor<15> (u_cordic/tmp_143<15>)
+     FDR:D                     0.102          u_cordic/x_out_1_15
+    ----------------------------------------
+    Total                     35.689ns (9.272ns logic, 26.417ns route)
+                                       (26.0% logic, 74.0% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'lidar_clk'
+  Clock period: 2.999ns (frequency: 333.484MHz)
+  Total number of paths / destination ports: 68 / 35
+-------------------------------------------------------------------------
+Delay:               2.999ns (Levels of Logic = 1)
+  Source:            u_lidar_cdc/ack_sync2 (FF)
+  Destination:       u_lidar_cdc/req_toggle (FF)
+  Source Clock:      lidar_clk rising
+  Destination Clock: lidar_clk rising
+
+  Data Path: u_lidar_cdc/ack_sync2 to u_lidar_cdc/req_toggle
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              2   0.447   0.721  u_lidar_cdc/ack_sync2 (u_lidar_cdc/ack_sync2)
+     LUT3:I1->O           33   0.203   1.305  u_lidar_cdc/sensor_data_valid_sensor_ready_AND_1_o11 (u_lidar_cdc/sensor_data_valid_sensor_ready_AND_1_o)
+     FDCE:CE                   0.322          u_lidar_cdc/data_buffer_0
+    ----------------------------------------
+    Total                      2.999ns (0.972ns logic, 2.027ns route)
+                                       (32.4% logic, 67.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'sys_clk'
+  Total number of paths / destination ports: 457 / 457
+-------------------------------------------------------------------------
+Offset:              3.732ns (Levels of Logic = 1)
+  Source:            sys_reset (PAD)
+  Destination:       lidar_data_valid (FF)
+  Destination Clock: sys_clk rising
+
+  Data Path: sys_reset to lidar_data_valid
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O           406   1.222   2.080  sys_reset_IBUF (sys_reset_IBUF)
+     FDC:CLR                   0.430          lidar_data_valid
+    ----------------------------------------
+    Total                      3.732ns (1.652ns logic, 2.080ns route)
+                                       (44.3% logic, 55.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'lidar_clk'
+  Total number of paths / destination ports: 100 / 100
+-------------------------------------------------------------------------
+Offset:              3.862ns (Levels of Logic = 2)
+  Source:            lidar_valid_in (PAD)
+  Destination:       u_lidar_cdc/req_toggle (FF)
+  Destination Clock: lidar_clk rising
+
+  Data Path: lidar_valid_in to u_lidar_cdc/req_toggle
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             1   1.222   0.808  lidar_valid_in_IBUF (lidar_valid_in_IBUF)
+     LUT3:I0->O           33   0.205   1.305  u_lidar_cdc/sensor_data_valid_sensor_ready_AND_1_o11 (u_lidar_cdc/sensor_data_valid_sensor_ready_AND_1_o)
+     FDCE:CE                   0.322          u_lidar_cdc/data_buffer_0
+    ----------------------------------------
+    Total                      3.862ns (1.749ns logic, 2.113ns route)
+                                       (45.3% logic, 54.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'sys_clk'
+  Total number of paths / destination ports: 52 / 52
+-------------------------------------------------------------------------
+Offset:              3.597ns (Levels of Logic = 1)
+  Source:            clean_lidar_x_15 (FF)
+  Destination:       clean_lidar_x<15> (PAD)
+  Source Clock:      sys_clk rising
+
+  Data Path: clean_lidar_x_15 to clean_lidar_x<15>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              1   0.447   0.579  clean_lidar_x_15 (clean_lidar_x_15)
+     OBUF:I->O                 2.571          clean_lidar_x_15_OBUF (clean_lidar_x<15>)
+    ----------------------------------------
+    Total                      3.597ns (3.018ns logic, 0.579ns route)
+                                       (83.9% logic, 16.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'lidar_clk'
+  Total number of paths / destination ports: 2 / 1
+-------------------------------------------------------------------------
+Offset:              4.521ns (Levels of Logic = 2)
+  Source:            u_lidar_cdc/ack_sync2 (FF)
+  Destination:       lidar_ready_out (PAD)
+  Source Clock:      lidar_clk rising
+
+  Data Path: u_lidar_cdc/ack_sync2 to lidar_ready_out
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              2   0.447   0.721  u_lidar_cdc/ack_sync2 (u_lidar_cdc/ack_sync2)
+     LUT2:I0->O            1   0.203   0.579  u_lidar_cdc/sensor_ready11 (lidar_ready_out_OBUF)
+     OBUF:I->O                 2.571          lidar_ready_out_OBUF (lidar_ready_out)
+    ----------------------------------------
+    Total                      4.521ns (3.221ns logic, 1.300ns route)
+                                       (71.2% logic, 28.8% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock lidar_clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+lidar_clk      |    2.999|         |         |         |
+sys_clk        |    1.165|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock sys_clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+lidar_clk      |    1.232|         |         |         |
+sys_clk        |   35.689|         |         |         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 8.00 secs
+Total CPU time to Xst completion: 7.96 secs
+ 
+--> 
+
+Total memory usage is 4536292 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :  117 (   0 filtered)
+Number of infos    :   54 (   0 filtered)
+
