@@ -12,7 +12,7 @@ A high-performance, fully pipelined, and multiplierless (Zero-DSP) hardware acce
 
 ---
 
-## 📌 English Description
+## 📌 Description
 
 ### Overview
 Processing high-throughput sensor data (LiDAR point clouds and IMU streams) on conventional Von Neumann CPUs often leads to significant computational bottlenecks and unpredictable OS jitter. This project introduces an industrial-grade, highly modular RTL architecture that offloads Cartesian coordinate transformations and adaptive noise filtering to an FPGA. 
